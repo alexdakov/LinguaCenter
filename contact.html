@@ -114,9 +114,20 @@
 <a class="text-gray-500 hover:text-primary transition-all duration-300" href="team.html">Our Team</a>
 <a class="text-primary border-b border-primary pb-1" href="contact.html">Contact</a>
 </nav>
-<button class="bg-primary px-8 py-2.5 rounded-full text-on-primary font-label-sm text-label-sm hover:opacity-90 active:scale-95 transition-all">
-                Enroll Now
-            </button>
+<div class="flex items-center gap-6">
+    <!-- Language Icons -->
+    <div class="flex gap-3">
+        <button onclick="changeLanguage('en')" class="hover:opacity-70 transition-opacity">
+            <img src="https://flagcdn.com/w40/gb.png" width="24" alt="English">
+        </button>
+        <button onclick="changeLanguage('ru')" class="hover:opacity-70 transition-opacity">
+            <img src="https://flagcdn.com/w40/ru.png" width="24" alt="Russian">
+        </button>
+    </div>
+    <!-- Your existing Enroll button -->
+    <button class="bg-primary px-8 py-2.5 rounded-full text-on-primary font-label-sm text-label-sm hover:opacity-90 active:scale-95 transition-all">
+        <span data-i18n="enroll_btn">Enroll Now</span>
+    </button>
 </div>
 </header>
 <main class="max-w-[1280px] mx-auto px-12 py-24">
