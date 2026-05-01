@@ -263,47 +263,101 @@
 </div>
 </footer>
         <script>
-const translations = {
-    'en': {
-        'nav_experience': 'The Experience',
-        'nav_courses': 'Courses & Pricing',
-        'nav_team': 'Our Team',
-        'nav_contact': 'Contact',
-        'enroll_btn': 'Enroll Now',
-        'hero_title': 'Luminous Progress.',
-        'hero_desc': 'Experience a boutique language journey where clarity meets minimalism.'
-    },
-    'bg': {
-        'nav_experience': 'Преживяването',
-        'nav_courses': 'Курсове и Цени',
-        'nav_team': 'Нашият Екип',
-        'nav_contact': 'Контакт',
-        'enroll_btn': 'Запиши се',
-        'hero_title': 'Светъл Прогрес.',
-        'hero_desc': 'Изживейте бутиково езиково пътешествие, където яснотата среща минимализма.'
-    },
-    'ru': {
-        'nav_experience': 'Опыт',
-        'nav_courses': 'Курсы и Цены',
-        'nav_team': 'Наша Команда',
-        'nav_contact': 'Контакты',
-        'enroll_btn': 'Записаться',
-        'hero_title': 'Светлый Прогресс.',
-        'hero_desc': 'Начните уникальное языковое путешествие, где ясность встречается с минимализмом.'
+<script>
+let translations = {};
+
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1PNf9TGeAYwpGclp0JNkDpNHKpta_T0FNZ4ld30-eutQ/export?format=csv";
+
+// ✅ Robust CSV parser (handles commas + quotes)
+function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let value = "";
+    let insideQuotes = false;
+
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+
+        if (char === '"' && text[i + 1] === '"') {
+            value += '"';
+            i++;
+        } else if (char === '"') {
+            insideQuotes = !insideQuotes;
+        } else if (char === ',' && !insideQuotes) {
+            row.push(value);
+            value = "";
+        } else if (char === '\n' && !insideQuotes) {
+            row.push(value);
+            rows.push(row);
+            row = [];
+            value = "";
+        } else {
+            value += char;
+        }
     }
-};
+
+    if (value) {
+        row.push(value);
+        rows.push(row);
+    }
+
+    return rows;
+}
+
+async function loadTranslations() {
+    try {
+        const response = await fetch(SHEET_URL);
+        const csvText = await response.text();
+
+        const rows = parseCSV(csvText);
+        const headers = rows[0]; // Page/html | Key | en | bg | ru
+
+        translations = {};
+
+        // init languages dynamically
+        headers.slice(2).forEach(lang => {
+            translations[lang.trim()] = {};
+        });
+
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+        rows.slice(1).forEach(row => {
+            const page = row[0]?.trim();
+            const key = row[1]?.trim();
+
+            if (!key) return;
+
+            // 🔹 filter by page
+            if (page && page !== currentPage) return;
+
+            headers.slice(2).forEach((lang, index) => {
+                const value = row[index + 2];
+                if (value) {
+                    translations[lang.trim()][key] = value.trim();
+                }
+            });
+        });
+
+    } catch (error) {
+        console.error("Translation loading failed:", error);
+    }
+}
 
 function changeLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
+
         if (translations[lang] && translations[lang][key]) {
             element.innerText = translations[lang][key];
         }
     });
+
     localStorage.setItem('lang', lang);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadTranslations();
+
     const savedLang = localStorage.getItem('lang') || 'en';
     changeLanguage(savedLang);
 });
