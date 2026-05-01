@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -109,7 +107,6 @@
     </style>
 </head>
 <body class="font-body-md bg-background">
-<!-- TopNavBar -->
 <header class="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
 <div class="max-w-[1280px] mx-auto flex items-center justify-between px-12 py-6">
 <div class="text-2xl font-bold tracking-tighter text-gray-900">Lumina Academy</div>
@@ -118,8 +115,8 @@
 <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-teal-500 transition-all duration-300" href="courses.html" data-i18n="nav_courses">Courses & Pricing</a>
 <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-teal-500 transition-all duration-300" href="team.html" data-i18n="nav_team">Our Team</a>
 <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-teal-500 transition-all duration-300" href="contact.html" data-i18n="nav_contact">Contact</a>
+</nav>
 <div class="flex items-center gap-6">
-    <!-- Flag Icons -->
     <div class="flex gap-3">
         <button onclick="changeLanguage('en')" class="hover:opacity-70 transition-opacity">
             <img src="https://flagcdn.com/w40/gb.png" width="24" alt="English">
@@ -131,19 +128,18 @@
             <img src="https://flagcdn.com/w40/ru.png" width="24" alt="Russian">
         </button>
     </div>
-    <!-- Enroll Button -->
     <button class="active:scale-95 transition-transform bg-primary px-8 py-3 rounded-full text-white font-label-sm tracking-widest uppercase text-[11px]">
         <span data-i18n="enroll_btn">Enroll Now</span>
     </button>
 </div>
+</div>
 </header>
 <main class="max-w-[1280px] mx-auto px-12">
-<!-- Hero Section -->
 <section class="mt-section-margin grid md:grid-cols-2 items-center gap-gutter">
 <div class="flex flex-col gap-8">
 <h1 class="font-headline-xl text-on-surface" data-i18n="hero_title">Luminous Progress.</h1>
-<p class="font-body-lg text-on-surface-variant max-w-md">
-                    Experience a boutique language journey where clarity meets minimalism. We strip away the noise to let your potential shine.
+<p class="font-body-lg text-on-surface-variant max-w-md" data-i18n="hero_desc">
+                    Experience a boutique language journey where clarity meets minimalism.
                 </p>
 <div class="flex gap-4 items-center">
 <button class="bg-primary px-10 py-4 rounded-full text-on-primary font-label-sm shadow-sm hover:opacity-90 transition-opacity">
@@ -155,114 +151,11 @@
 </div>
 </div>
 <div class="relative">
-<img class="w-full h-[500px] object-cover rounded-[24px] atmospheric-shadow" data-alt="A serene, sun-drenched minimalist learning studio with wide white walls and a single designer wooden table. Soft natural light diffuses through large windows, creating a high-key, professional aesthetic. The atmosphere is quiet and intellectually focused, reflecting the Lumina Academy's commitment to clarity and wellness in education." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB09Bag3xYBNWo-1Idf54lBNBQ02vSPPSE6w6xbsHtE_DgPSsBtohQZ0NxfRmZEE3arwgZ4bUf8-HI0GJ3wju5qDNi9ISvLylT0QWEkNY3xPw7dzkut2AhZrfSO4pwEZ9g6Q5sc6j_3qXXuANsE2eyEMNbGvMPOyjnIXmcPFYGJVjyQHtqzw8SEomxRGLlBqXZE_fnWnU8mqxNJ175KY3-kpqc6IlCOFL08dAJRvxAk_hei2BCP_diZfyVQwctzHGCL_ZaqLvD2R4"/>
+<img class="w-full h-[500px] object-cover rounded-[24px] atmospheric-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB09Bag3xYBNWo-1Idf54lBNBQ02vSPPSE6w6xbsHtE_DgPSsBtohQZ0NxfRmZEE3arwgZ4bUf8-HI0GJ3wju5qDNi9ISvLylT0QWEkNY3xPw7dzkut2AhZrfSO4pwEZ9g6Q5sc6j_3qXXuANsE2eyEMNbGvMPOyjnIXmcPFYGJVjyQHtqzw8SEomxRGLlBqXZE_fnWnU8mqxNJ175KY3-kpqc6IlCOFL08dAJRvxAk_hei2BCP_diZfyVQwctzHGCL_ZaqLvD2R4"/>
 </div>
-</section>
-<!-- The "Why" Section -->
-<section class="mt-section-margin">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-<div class="flex flex-col gap-4 p-8 bg-white rounded-[24px] atmospheric-shadow">
-<span class="material-symbols-outlined text-primary-fixed-dim text-4xl" data-icon="spa">spa</span>
-<h3 class="font-headline-md text-on-surface">Minimalist environment</h3>
-<p class="font-body-md text-on-surface-variant">Uncluttered spaces designed to maximize cognitive ease and focus.</p>
-</div>
-<div class="flex flex-col gap-4 p-8 bg-white rounded-[24px] atmospheric-shadow">
-<span class="material-symbols-outlined text-primary-fixed-dim text-4xl" data-icon="psychology">psychology</span>
-<h3 class="font-headline-md text-on-surface">Expert mentors</h3>
-<p class="font-body-md text-on-surface-variant">Discerning instructors who guide you through curated pathways.</p>
-</div>
-<div class="flex flex-col gap-4 p-8 bg-white rounded-[24px] atmospheric-shadow">
-<span class="material-symbols-outlined text-primary-fixed-dim text-4xl" data-icon="speed">speed</span>
-<h3 class="font-headline-md text-on-surface">Fast progress</h3>
-<p class="font-body-md text-on-surface-variant">Efficiency prioritized through streamlined, high-impact methodologies.</p>
-</div>
-</div>
-</section>
-<!-- Language Filter Navigation -->
-<section class="mt-section-margin text-center">
-<h2 class="font-headline-lg text-on-surface mb-12">Choose Your Pathway</h2>
-<div class="flex flex-wrap justify-center gap-6">
-<!-- UK -->
-<button class="group flex flex-col items-center gap-4 p-6 bg-white rounded-[24px] atmospheric-shadow hover:scale-105 transition-all w-40 border-b-4 border-transparent hover:border-primary">
-<img alt="UK Flag" class="w-16 h-10 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC78tG3OsDHv7BDCeOdK4mKb1AJZyUK14cD80dPVZejgzrl3SSRFmWTkpFqRGNf11LdHStUn9Ne3hnmCDiYHTBo0OaZJl_pOWv30U5ZWNXd-aei1_JxjJY3FB4ITnN0HzAm206qzgnX0mhco1ltl6nSFei51R7_h4ipz0h9k3776GPnRBIK5zZ5X4yTagHl-k6dFa-n-QqQd9YKCFOC9h62wGy70EyZTuGmjdgnzi0aa6ugedAENJACcIqZqr4FG0OQT87g8YOmoSE"/>
-<span class="font-label-sm text-on-surface">English</span>
-</button>
-<!-- France -->
-<button class="group flex flex-col items-center gap-4 p-6 bg-white rounded-[24px] atmospheric-shadow hover:scale-105 transition-all w-40 border-b-4 border-transparent hover:border-secondary">
-<img alt="France Flag" class="w-16 h-10 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmpW87Ti5cNBY-P_r9_KGLyw_pQ0p8Co25tNC7n1Yae-hNbnTrXD1TEzjH_ySFetLB-Iki5hXOVFDac9kW0SkAM_MuBsJ3kBpUcpPEmB5hs39rWmLiXfHxWsCu9qM6jKiAto6NT-Tki0IxqR_B7YAG0eFGnulPoWukKW6vKR7YFKMHrPGLPXrpoA5SoWzWwjbDHr-Q54qN7lv_UcVIpLnPKiMUZfQl6_Y90fMcnZGN3ManloZXy6ZgTN-ccSd0rxVnuAJZRCfhIzY"/>
-<span class="font-label-sm text-on-surface">French</span>
-</button>
-<!-- Italy -->
-<button class="group flex flex-col items-center gap-4 p-6 bg-white rounded-[24px] atmospheric-shadow hover:scale-105 transition-all w-40 border-b-4 border-transparent hover:border-primary-fixed">
-<img alt="Italy Flag" class="w-16 h-10 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8M96RtMRaIcHQLc6u5HIBohFygo2NOk3Ifs4E3GdwAUZTNoPaG4BTr7kAvjZBz789jM5hUy_Q3H59HiFkJBve5pHvsVZFZUTs15dxtYA5MtIGiccG5b2PTnqlupeLo61Z04vdXth2VAVYewA-Tou8QfDASoM04XvWMBXbWvPuursuED5dqdPTVQqaluak4I_MgGPsDKDmWmR-KkyESdbM43_TmKp3RteM3h9UKd0NXabSXk0QVmhy3dQMEKa91Ydfw6c3kiOG-MA"/>
-<span class="font-label-sm text-on-surface">Italian</span>
-</button>
-<!-- Spain -->
-<button class="group flex flex-col items-center gap-4 p-6 bg-white rounded-[24px] atmospheric-shadow hover:scale-105 transition-all w-40 border-b-4 border-transparent hover:border-on-primary-container">
-<img alt="Spain Flag" class="w-16 h-10 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMgfPW03hgWLyZrXbfoBmrMt6-9S0tDYNkl4_nmqCI0LJvaYP0O74RyyiU2vp40HEQfP5CT07RWS8WIID2WSZ1dAZ6ji6pX9F4Rz7UPXuetx8ZZ_US8mTtAcLs70REq07PxvsTbH0vnDlhx38ZSO0lr_vPScWYqBj4N-FQ33gHZEv0EVrmIoVzm1Q85vSnxaSptMX9RHgcYA32bmFVQouaWDGUlizgGK-OiKtGvA1N4d8L7W5SvoKA7WuF9Wz3EmXxjg01bIBTug"/>
-<span class="font-label-sm text-on-surface">Spanish</span>
-</button>
-<!-- Japan -->
-<button class="group flex flex-col items-center gap-4 p-6 bg-white rounded-[24px] atmospheric-shadow hover:scale-105 transition-all w-40 border-b-4 border-transparent hover:border-tertiary">
-<img alt="Japan Flag" class="w-16 h-10 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzGBi0-LZ-fAL_3nt7d_OL7jjCKRmwhB1ReWwQK7WYiClA7Sf5TSd_WueIqslEq6RmwzegMMnI7HfI6BStU7rlAyWtd9QYqKEYe-M9vxiaNJ7UdldNEzYkQvFCx3iPcBtbStZVNlQGtAqoS5H46tVuPSQx1nroOBeW7u0qKxwnuzIDOh8k9SxQPlIfHPCBjf99UtfyF__5dJda3Z79GLPT-gBn_kxMt-qwPE9Nf4XLjgsqJHrdPk4wG2QRu1QmNRaEYd4xB7bJuYY"/>
-<span class="font-label-sm text-on-surface">Japanese</span>
-</button>
-<!-- Germany -->
-<button class="group flex flex-col items-center gap-4 p-6 bg-white rounded-[24px] atmospheric-shadow hover:scale-105 transition-all w-40 border-b-4 border-transparent hover:border-on-surface-variant">
-<img alt="Germany Flag" class="w-16 h-10 object-cover rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1zzBKa0qJmCXT7qslvlFwfseYD2fDxIFnEzk4Ex1_VHDWbH7GsZH7is8mzfeVLbVLvN9zCkv7J5h8zRfLoZUtAjZ-_GYiG5UTwJqE9taHJdhj8iQksBInP4GKSMSdPtqZfxFYehkOBzb2GY_YZRvoeGYqhzKiag77LcA-WO7-UT95UPrI-NxFoeSpq7QGINa-yS2xOfr-DIMhklB0ekl9xsF77Ck1LDK-R25FLsyruWKsZMljp4kCKvcAVfHclu-8GdfHtCgKW5g"/>
-<span class="font-label-sm text-on-surface">German</span>
-</button>
-</div>
-</section>
-<!-- Quick Enrollment CTA -->
-<section class="mt-section-margin mb-32 bg-primary-container rounded-[48px] p-16 text-center overflow-hidden relative">
-<div class="relative z-10">
-<h2 class="font-headline-xl text-on-primary-container mb-6">Begin Your Transformation</h2>
-<p class="font-body-lg text-on-primary-container/80 mb-10 max-w-xl mx-auto">
-                    Join a community of focused learners today. Secure your place in our next cohort.
-                </p>
-<button class="bg-primary px-16 py-5 rounded-full text-white font-label-sm text-lg hover:scale-105 active:scale-95 transition-all">
-                    Apply Now
-                </button>
-</div>
-<!-- Subtle abstract shape for depth -->
-<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-fixed rounded-full blur-3xl opacity-30"></div>
-<div class="absolute -top-24 -left-24 w-64 h-64 bg-tertiary-fixed rounded-full blur-3xl opacity-30"></div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="w-full bg-gray-50 border-t border-gray-100 font-['Plus_Jakarta_Sans'] font-light text-sm">
-<div class="max-w-[1280px] mx-auto px-12 py-24 grid grid-cols-1 md:grid-cols-4 gap-16">
-<div class="flex flex-col gap-6">
-<div class="text-xl font-bold text-gray-900">Lumina Academy</div>
-<p class="text-gray-500 leading-relaxed">Elevating language education through luminous clarity and minimalist design principles.</p>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-bold text-gray-900">Academy</h4>
-<a class="text-gray-500 hover:text-teal-500 underline underline-offset-4 decoration-sky-300 transition-opacity" href="#">The Experience</a>
-<a class="text-gray-500 hover:text-teal-500 transition-opacity" href="#">Courses</a>
-<a class="text-gray-500 hover:text-teal-500 transition-opacity" href="#">Team</a>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-bold text-gray-900">Legal</h4>
-<a class="text-gray-500 hover:text-teal-500 transition-opacity" href="#">Privacy Policy</a>
-<a class="text-gray-500 hover:text-teal-500 transition-opacity" href="#">Terms of Service</a>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-bold text-gray-900">Support</h4>
-<a class="text-gray-500 hover:text-teal-500 transition-opacity" href="#">Contact Us</a>
-<a class="text-gray-500 hover:text-teal-500 transition-opacity" href="#">FAQ</a>
-</div>
-</div>
-<div class="max-w-[1280px] mx-auto px-12 py-8 border-t border-gray-200/50 flex justify-between items-center text-gray-400">
-<span>© 2024 Lumina Academy. Designed for Luminous Clarity.</span>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">language</span>
-<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary">share</span>
-</div>
-</div>
-</footer>
-        <script>
+<script>
 const translations = {
     'en': {
         'nav_experience': 'The Experience',
