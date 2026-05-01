@@ -265,60 +265,68 @@
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <script>
-let translations = {};
-
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIWNv85ALfJcf9HNOrEXrFFa7doPecEHNTIlbg5W8bdPlLJRXLUQvV3WP5BXlT8rlWIrlSjs3K4C0e/pub?output=csv";
 
-// ✅ Detect current page (VERY IMPORTANT)
+let translations = { en: {}, bg: {}, ru: {} };
+
+// 🔥 FIXED page detection (this was likely breaking it)
 function getCurrentPage() {
-    return window.location.pathname.split("/").pop() || "index.html";
+    let path = window.location.pathname;
+
+    // If opened locally or root → default to index.html
+    if (!path || path === "/" || path === "") return "index.html";
+
+    return path.split("/").pop();
 }
 
 async function loadTranslations() {
     try {
-        const response = await fetch(SHEET_URL);
-        const csv = await response.text();
+        const res = await fetch(SHEET_URL);
+        const csv = await res.text();
 
         const parsed = Papa.parse(csv, {
             header: true,
             skipEmptyLines: true
         });
 
-        const page = getCurrentPage();
+        console.log("RAW DATA:", parsed.data); // 👈 DEBUG
 
-        translations = { en: {}, bg: {}, ru: {} };
+        const currentPage = getCurrentPage();
+        console.log("Current page:", currentPage); // 👈 DEBUG
 
         parsed.data.forEach(row => {
-            const rowPage = row["Page/html"]?.trim();
-            const key = row["Key"]?.trim();
+            // 🔥 Normalize column names (VERY IMPORTANT)
+            const page = (row["Page/html"] || row["Page"] || "").trim();
+            const key = (row["Key"] || "").trim();
 
-            // ✅ FILTER ONLY CURRENT PAGE
-            if (!rowPage || !key) return;
-            if (rowPage !== page) return;
+            if (!page || !key) return;
+
+            // 🔥 TEMP: remove filtering to test
+            // if (page !== currentPage) return;
 
             translations.en[key] = row["en"] || "";
             translations.bg[key] = row["bg"] || "";
             translations.ru[key] = row["ru"] || "";
         });
 
-        console.log("Loaded translations for:", page, translations);
+        console.log("PARSED TRANSLATIONS:", translations); // 👈 DEBUG
 
         const savedLang = localStorage.getItem("lang") || "en";
         changeLanguage(savedLang);
 
     } catch (err) {
-        console.error("Translation load error:", err);
+        console.error("ERROR:", err);
     }
 }
 
 function changeLanguage(lang) {
-    if (!translations[lang]) return;
-
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
 
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             el.innerText = translations[lang][key];
+        } else {
+            console.warn("Missing key:", key);
         }
     });
 
