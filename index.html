@@ -262,48 +262,52 @@
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
 <script>
 let translations = {};
 
-// 👉 Your published CSV
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIWNv85ALfJcf9HNOrEXrFFa7doPecEHNTIlbg5W8bdPlLJRXLUQvV3WP5BXlT8rlWIrlSjs3K4C0e/pub?output=csv";
+
+// ✅ Detect current page (VERY IMPORTANT)
+function getCurrentPage() {
+    return window.location.pathname.split("/").pop() || "index.html";
+}
 
 async function loadTranslations() {
     try {
-        const res = await fetch(SHEET_URL);
-        const csv = await res.text();
+        const response = await fetch(SHEET_URL);
+        const csv = await response.text();
 
-        const rows = csv.split("\n").map(r => r.split(","));
+        const parsed = Papa.parse(csv, {
+            header: true,
+            skipEmptyLines: true
+        });
 
-        // Clear old translations
+        const page = getCurrentPage();
+
         translations = { en: {}, bg: {}, ru: {} };
 
-        // Skip header row
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i];
+        parsed.data.forEach(row => {
+            const rowPage = row["Page/html"]?.trim();
+            const key = row["Key"]?.trim();
 
-            if (row.length < 5) continue;
+            // ✅ FILTER ONLY CURRENT PAGE
+            if (!rowPage || !key) return;
+            if (rowPage !== page) return;
 
-            const key = row[1]?.trim();
-            const en = row[2]?.trim();
-            const bg = row[3]?.trim();
-            const ru = row[4]?.trim();
+            translations.en[key] = row["en"] || "";
+            translations.bg[key] = row["bg"] || "";
+            translations.ru[key] = row["ru"] || "";
+        });
 
-            if (!key) continue;
+        console.log("Loaded translations for:", page, translations);
 
-            translations.en[key] = en || "";
-            translations.bg[key] = bg || "";
-            translations.ru[key] = ru || "";
-        }
-
-        console.log("Translations loaded:", translations);
-
-        // Apply saved language
         const savedLang = localStorage.getItem("lang") || "en";
         changeLanguage(savedLang);
 
     } catch (err) {
-        console.error("Error loading translations:", err);
+        console.error("Translation load error:", err);
     }
 }
 
@@ -321,7 +325,6 @@ function changeLanguage(lang) {
     localStorage.setItem("lang", lang);
 }
 
-// Load on start
 document.addEventListener("DOMContentLoaded", loadTranslations);
 </script>
 </body></html>
