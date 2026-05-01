@@ -262,108 +262,66 @@
 </div>
 </div>
 </footer>
-        <script>
-<script>
 <script>
 let translations = {};
 
-// ✅ Your NEW published Google Sheets CSV
+// 👉 Your published CSV
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIWNv85ALfJcf9HNOrEXrFFa7doPecEHNTIlbg5W8bdPlLJRXLUQvV3WP5BXlT8rlWIrlSjs3K4C0e/pub?output=csv";
-
-// ✅ Robust CSV parser (supports commas & quotes)
-function parseCSV(text) {
-    const rows = [];
-    let row = [];
-    let value = "";
-    let insideQuotes = false;
-
-    for (let i = 0; i < text.length; i++) {
-        const char = text[i];
-
-        if (char === '"' && text[i + 1] === '"') {
-            value += '"';
-            i++;
-        } else if (char === '"') {
-            insideQuotes = !insideQuotes;
-        } else if (char === ',' && !insideQuotes) {
-            row.push(value);
-            value = "";
-        } else if ((char === '\n' || char === '\r') && !insideQuotes) {
-            if (value || row.length) {
-                row.push(value);
-                rows.push(row);
-                row = [];
-                value = "";
-            }
-        } else {
-            value += char;
-        }
-    }
-
-    if (value || row.length) {
-        row.push(value);
-        rows.push(row);
-    }
-
-    return rows;
-}
 
 async function loadTranslations() {
     try {
-        const response = await fetch(SHEET_URL);
-        const csvText = await response.text();
+        const res = await fetch(SHEET_URL);
+        const csv = await res.text();
 
-        const rows = parseCSV(csvText);
-        const headers = rows[0]; // Page/html | Key | en | bg | ru
+        const rows = csv.split("\n").map(r => r.split(","));
 
-        translations = {};
+        // Clear old translations
+        translations = { en: {}, bg: {}, ru: {} };
 
-        // Init languages dynamically
-        headers.slice(2).forEach(lang => {
-            translations[lang.trim()] = {};
-        });
+        // Skip header row
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
 
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            if (row.length < 5) continue;
 
-        rows.slice(1).forEach(row => {
-            const page = row[0]?.trim();
             const key = row[1]?.trim();
+            const en = row[2]?.trim();
+            const bg = row[3]?.trim();
+            const ru = row[4]?.trim();
 
-            if (!key) return;
+            if (!key) continue;
 
-            // 🔹 Only load translations for current page
-            if (page && page !== currentPage) return;
+            translations.en[key] = en || "";
+            translations.bg[key] = bg || "";
+            translations.ru[key] = ru || "";
+        }
 
-            headers.slice(2).forEach((lang, index) => {
-                const value = row[index + 2];
-                if (value) {
-                    translations[lang.trim()][key] = value.trim();
-                }
-            });
-        });
+        console.log("Translations loaded:", translations);
 
-    } catch (error) {
-        console.error("Translation loading failed:", error);
+        // Apply saved language
+        const savedLang = localStorage.getItem("lang") || "en";
+        changeLanguage(savedLang);
+
+    } catch (err) {
+        console.error("Error loading translations:", err);
     }
 }
 
 function changeLanguage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
+    if (!translations[lang]) return;
 
-        if (translations[lang] && translations[lang][key]) {
-            element.innerText = translations[lang][key];
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+
+        if (translations[lang][key]) {
+            el.innerText = translations[lang][key];
         }
     });
 
-    localStorage.setItem('lang', lang);
+    localStorage.setItem("lang", lang);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadTranslations();
-
-    const savedLang = localStorage.getItem('lang') || 'en';
-    changeLanguage(savedLang);
-});
+// Load on start
+document.addEventListener("DOMContentLoaded", loadTranslations);
 </script>
 </body></html>
