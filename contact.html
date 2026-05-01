@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Contact | LinguaCenter&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function switchLanguage(lang) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const currentPage = window.location.pathname.split("/").pop() || "index.html";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const path = lang === 'en' ? '' : '/' + lang;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.location.href = `${path}/${currentPage}`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-50 font-sans"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="bg-white border-b sticky top-0 z-50 h-20 flex items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="index.html" class="text-2xl font-black text-blue-600"&gt;LINGUACENTER&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;nav class="flex gap-8 font-semibold uppercase text-sm tracking-widest"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html"&gt;Home&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="languages.html"&gt;Languages&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="about.html"&gt;About&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="contact.html" class="text-blue-600"&gt;Contact&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" onclick="switchLanguage('en')" class="w-6 h-4 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://flagicons.lipis.dev/flags/4x3/es.svg" onclick="switchLanguage('es')" class="w-6 h-4 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" onclick="switchLanguage('fr')" class="w-6 h-4 cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="max-w-2xl mx-auto px-6 py-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white p-12 rounded-3xl shadow-sm border border-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-black mb-6 italic uppercase"&gt;Connect With Us&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;form class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" placeholder="Full Name" class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="email" placeholder="Email Address" class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;textarea placeholder="Tell us about your goals" rows="4" class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition"&gt;Send Message&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
