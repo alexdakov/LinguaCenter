@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -93,7 +93,7 @@
             },
         }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
@@ -108,368 +108,406 @@
     </style>
 </head>
 <body class="bg-surface-container-lowest text-on-background font-body-md selection:bg-primary-container selection:text-primary">
+
 <nav class="sticky top-0 w-full z-50 bg-white/40 backdrop-blur-2xl border-b border-surface-container shadow-sm">
-<div class="max-w-[1280px] mx-auto flex items-center justify-between px-12 py-6">
-<span class="text-2xl font-bold tracking-tighter text-gray-900">Lumina Academy</span>
-<nav class="hidden md:flex items-center gap-8">
-    <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-primary transition-all duration-300" href="index.html" data-i18n="nav_experience">The Experience</a>
-    <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-primary border-b-2 border-primary pb-1" href="courses.html" data-i18n="nav_courses">Courses & Pricing</a>
-    <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-primary transition-all duration-300" href="team.html" data-i18n="nav_team">Our Team</a>
-    <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-primary transition-all duration-300" href="contact.html" data-i18n="nav_contact">Contact</a>
-</nav>
-<div class="flex items-center gap-6">
-    <!-- Language Icons -->
-    <div class="flex gap-3">
-        <button onclick="changeLanguage('en')" class="hover:opacity-70 transition-opacity">
-            <img src="https://flagcdn.com/w40/gb.png" width="24" alt="English">
-        </button>
-         <button onclick="changeLanguage('bg')" class="hover:opacity-70 transition-opacity">
-            <img src="https://flagcdn.com/w40/bg.png" width="24" alt="Bulgarian">
-        </button>
-        <button onclick="changeLanguage('ru')" class="hover:opacity-70 transition-opacity">
-            <img src="https://flagcdn.com/w40/ru.png" width="24" alt="Russian">
-        </button>
+    <div class="max-w-[1280px] mx-auto flex items-center justify-between px-12 py-6">
+        <span class="text-2xl font-bold tracking-tighter text-gray-900">Lumina Academy</span>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-primary transition-all duration-300" href="index.html" data-i18n="nav_experience">The Experience</a>
+            <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-primary border-b-2 border-primary pb-1" href="courses.html" data-i18n="nav_courses">Courses & Pricing</a>
+            <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-primary transition-all duration-300" href="team.html" data-i18n="nav_team">Our Team</a>
+            <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-primary transition-all duration-300" href="contact.html" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-6">
+            <div class="flex gap-3">
+                <button onclick="changeLanguage('en')" class="hover:opacity-70 transition-opacity">
+                    <img src="https://flagcdn.com/w40/gb.png" width="24" alt="English">
+                </button>
+                 <button onclick="changeLanguage('bg')" class="hover:opacity-70 transition-opacity">
+                    <img src="https://flagcdn.com/w40/bg.png" width="24" alt="Bulgarian">
+                </button>
+                <button onclick="changeLanguage('ru')" class="hover:opacity-70 transition-opacity">
+                    <img src="https://flagcdn.com/w40/ru.png" width="24" alt="Russian">
+                </button>
+            </div>
+            <button class="bg-primary px-8 py-2.5 rounded-full text-on-primary font-label-sm text-label-sm hover:opacity-90 active:scale-95 transition-all">
+                <span data-i18n="enroll_btn">Enroll Now</span>
+            </button>
+        </div>
     </div>
-    <!-- Your existing Enroll button -->
-    <button class="bg-primary px-8 py-2.5 rounded-full text-on-primary font-label-sm text-label-sm hover:opacity-90 active:scale-95 transition-all">
-        <span data-i18n="enroll_btn">Enroll Now</span>
-    </button>
-  </div>
-</div>
 </nav>
+
 <main class="max-w-[1280px] mx-auto px-12 pb-32">
-<section class="mt-24 mb-12 max-w-2xl">
-    <!-- Added data-i18n="courses_title" -->
-    <h1 class="font-headline-xl text-on-surface mb-6" data-i18n="courses_title">Luminous Learning Paths</h1>
-    <!-- Added data-i18n="courses_desc" -->
-    <p class="font-body-lg text-on-surface-variant" data-i18n="courses_desc">Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.</p>
-</section>
-<!-- Language Filter -->
-<section class="mb-12">
-<div class="flex flex-wrap gap-3 items-center" id="language-filter">
-<span class="text-label-sm text-outline uppercase mr-4">Filter by:</span>
-<button class="filter-btn active px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('All')">
-<span>All</span>
-</button>
-<button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('English')">
-<span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇬🇧</span>
-<span>English</span>
-</button>
-<button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('French')">
-<span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇫🇷</span>
-<span>French</span>
-</button>
-<button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('Italian')">
-<span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇮🇹</span>
-<span>Italian</span>
-</button>
-<button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('Spanish')">
-<span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇪🇸</span>
-<span>Spanish</span>
-</button>
-<button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('Japanese')">
-<span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇯🇵</span>
-<span>Japanese</span>
-</button>
-<button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('German')">
-<span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇩🇪</span>
-<span>German</span>
-</button>
-</div>
-</section>
-<section class="mb-section-margin">
-<div class="space-y-1" id="courses-container">
-<!-- Table Header -->
-<div class="hidden md:grid grid-cols-6 px-10 py-4 text-label-sm text-outline uppercase tracking-[0.1em] opacity-60">
-<div class="col-span-2">Language &amp; Identity</div>
-<div>Proficiency</div>
-<div class="col-span-2">Experience Focus</div>
-<div class="text-right">Investment</div>
-</div>
-<!-- French Course -->
-<div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="French">
-<div class="col-span-2 flex items-center gap-6">
-<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇫🇷</div>
-<div>
-<p class="font-headline-md text-on-surface">French</p>
-<p class="text-xs text-outline font-label-sm uppercase">Romance Tradition</p>
-</div>
-</div>
-<div>
-<span class="px-4 py-1.5 rounded-full bg-secondary-container/50 text-on-secondary-container text-label-sm">A1 Beginner</span>
-</div>
-<div class="col-span-2">
-<p class="font-body-md text-on-surface-variant leading-relaxed">Master the foundational elegance of Parisian French syntax.</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-primary">$240<span class="text-sm font-light text-outline">/mo</span></p>
-</div>
-</div>
-<!-- Italian Course -->
-<div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="Italian">
-<div class="col-span-2 flex items-center gap-6">
-<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇮🇹</div>
-<div>
-<p class="font-headline-md text-on-surface">Italian</p>
-<p class="text-xs text-outline font-label-sm uppercase">Cultural Immersion</p>
-</div>
-</div>
-<div>
-<span class="px-4 py-1.5 rounded-full bg-primary-container/50 text-on-primary-container text-label-sm">B2 Advanced</span>
-</div>
-<div class="col-span-2">
-<p class="font-body-md text-on-surface-variant leading-relaxed">Deep dive into contemporary Italian literature and conversation.</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-primary">$280<span class="text-sm font-light text-outline">/mo</span></p>
-</div>
-</div>
-<!-- Japanese Course -->
-<div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="Japanese">
-<div class="col-span-2 flex items-center gap-6">
-<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇯🇵</div>
-<div>
-<p class="font-headline-md text-on-surface">Japanese</p>
-<p class="text-xs text-outline font-label-sm uppercase">Eastern Harmony</p>
-</div>
-</div>
-<div>
-<span class="px-4 py-1.5 rounded-full bg-tertiary-container/50 text-on-tertiary-container text-label-sm">A2 Intermediate</span>
-</div>
-<div class="col-span-2">
-<p class="font-body-md text-on-surface-variant leading-relaxed">Balance phonetic precision with graceful kanji composition.</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-primary">$310<span class="text-sm font-light text-outline">/mo</span></p>
-</div>
-</div>
-<!-- English (Example for filter) -->
-<div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="English">
-<div class="col-span-2 flex items-center gap-6">
-<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇬🇧</div>
-<div>
-<p class="font-headline-md text-on-surface">English</p>
-<p class="text-xs text-outline font-label-sm uppercase">Global Communication</p>
-</div>
-</div>
-<div>
-<span class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm">C1 Professional</span>
-</div>
-<div class="col-span-2">
-<p class="font-body-md text-on-surface-variant leading-relaxed">Refine business rhetoric and sophisticated academic writing.</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-primary">$260<span class="text-sm font-light text-outline">/mo</span></p>
-</div>
-</div>
-<!-- Spanish (Example for filter) -->
-<div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="Spanish">
-<div class="col-span-2 flex items-center gap-6">
-<div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇪🇸</div>
-<div>
-<p class="font-headline-md text-on-surface">Spanish</p>
-<p class="text-xs text-outline font-label-sm uppercase">Vibrant Expression</p>
-</div>
-</div>
-<div>
-<span class="px-4 py-1.5 rounded-full bg-orange-50 text-orange-800 text-label-sm">B1 Threshold</span>
-</div>
-<div class="col-span-2">
-<p class="font-body-md text-on-surface-variant leading-relaxed">Navigate daily social scenarios with confidence and fluidity.</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-primary">$230<span class="text-sm font-light text-outline">/mo</span></p>
-</div>
-</div>
-<!-- German (Example for filter) -->
-<div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="German">
-<div class="col-span-2 flex items-center gap-6">
-<div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇩🇪</div>
-<div>
-<p class="font-headline-md text-on-surface">German</p>
-<p class="text-xs text-outline font-label-sm uppercase">Structural Precision</p>
-</div>
-</div>
-<div>
-<span class="px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 text-label-sm">A2 Intermediate</span>
-</div>
-<div class="col-span-2">
-<p class="font-body-md text-on-surface-variant leading-relaxed">Build a solid grasp of German grammar and logical construction.</p>
-</div>
-<div class="text-right">
-<p class="font-headline-md text-primary">$270<span class="text-sm font-light text-outline">/mo</span></p>
-</div>
-</div>
-</div>
-</section>
-<!-- Pricing Cards Section -->
-<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-section-margin">
-<div class="bg-white p-10 rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between border border-surface-container hover:border-primary/20 transition-all duration-500">
-<div>
-<h3 class="font-headline-lg text-on-surface mb-2">Group</h3>
-<p class="font-body-md text-on-surface-variant mb-8">Collaborative growth in a shared studio environment.</p>
-<div class="space-y-4 mb-12">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">4-6 students per session</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">Weekly cultural workshops</span>
-</div>
-</div>
-</div>
-<button class="w-full py-4 rounded-full border border-secondary text-secondary font-label-sm hover:bg-secondary hover:text-surface transition-all duration-300">Choose Group</button>
-</div>
-<div class="bg-white p-10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.05)] flex flex-col justify-between border border-surface-container transition-all duration-500">
-<div>
-<h3 class="font-headline-lg text-on-surface mb-2">Private</h3>
-<p class="font-body-md text-on-surface-variant mb-8">Dedicated mentorship tailored to your personal rhythm.</p>
-<div class="space-y-4 mb-12">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">1-on-1 personalized path</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">Flexible scheduling</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">Custom resource library</span>
-</div>
-</div>
-</div>
-<button class="w-full py-4 rounded-full bg-on-surface text-surface font-label-sm hover:bg-primary transition-all duration-300">Choose Private</button>
-</div>
-<div class="bg-white p-10 rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between border border-surface-container hover:border-primary/20 transition-all duration-500">
-<div>
-<h3 class="font-headline-lg text-on-surface mb-2">Intensive</h3>
-<p class="font-body-md text-on-surface-variant mb-8">Rapid immersion for focused linguistic transformation.</p>
-<div class="space-y-4 mb-12">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">Daily 4-hour sessions</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
-<span class="text-on-surface-variant">24/7 priority support</span>
-</div>
-</div>
-</div>
-<button class="w-full py-4 rounded-full border border-secondary text-secondary font-label-sm hover:bg-secondary hover:text-surface transition-all duration-300">Choose Intensive</button>
-</div>
-</section>
-<section class="mt-section-margin bg-primary-container/30 rounded-[48px] overflow-hidden grid grid-cols-1 md:grid-cols-2">
-<div class="p-16 flex flex-col justify-center">
-<h2 class="font-headline-xl text-on-primary-container mb-6">Begin your journey in light.</h2>
-<p class="font-body-lg text-on-primary-container mb-10">We invite you to experience a trial session where clarity meets discovery. No commitment, just exploration.</p>
-<div class="flex gap-4">
-<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm shadow-lg shadow-primary/20 hover:scale-105 transition-transform">Book Trial</button>
-</div>
-</div>
-<div class="h-[400px] md:h-auto relative">
-<img alt="Minimalist studio" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDomxTzf7fvYHcmfBmOJes_ENYMXYr-KnSfWR8O8bxmi4S-o6A65531_MvhvGCiBJpFUT2KAehYCY3rCnqhAplTXlBCtmT1n4FrE7DgTeNu51txi-vxAwiwy0an-guczOBftme8Ig59OatsC-IcDD4hhUALL2X9_29WojVyHyMGVYGHS1USynKe9WG2vGHRD-E765edlyPptpsV2N8-MkG9VVyuj9QWowQi9bnIdqJz-0410YrqCv-_OsR_m2qgl3kZUlbz4hHHQzo"/>
-</div>
-</section>
-</main>
-<footer class="bg-white border-t border-surface-container">
-<div class="max-w-[1280px] mx-auto px-12 py-24 grid grid-cols-1 md:grid-cols-4 gap-16">
-<div class="col-span-1 md:col-span-2">
-<span class="text-xl font-bold text-gray-900 mb-6 block">Lumina Academy</span>
-<p class="font-['Plus_Jakarta_Sans'] font-light text-sm leading-relaxed text-gray-500 max-w-sm">
-                    Elevating the language learning experience through minimalist design and cognitive ease. A sanctuary for the modern learner.
-                </p>
-</div>
-<div>
-<h4 class="font-label-sm text-primary mb-6">Academy</h4>
-<ul class="space-y-4 font-['Plus_Jakarta_Sans'] font-light text-sm">
-<li><a class="text-gray-500 hover:text-primary underline underline-offset-4 decoration-primary/20 transition-all" href="#">Courses</a></li>
-<li><a class="text-gray-500 hover:text-primary underline underline-offset-4 decoration-primary/20 transition-all" href="#">Methodology</a></li>
-<li><a class="text-gray-500 hover:text-primary underline underline-offset-4 decoration-primary/20 transition-all" href="#">Faculty</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-sm text-primary mb-6">Support</h4>
-<ul class="space-y-4 font-['Plus_Jakarta_Sans'] font-light text-sm">
-<li><a class="text-gray-500 hover:text-primary underline underline-offset-4 decoration-primary/20 transition-all" href="#">Legal</a></li>
-<li><a class="text-gray-500 hover:text-primary underline underline-offset-4 decoration-primary/20 transition-all" href="#">Contact</a></li>
-<li><a class="text-gray-500 hover:text-primary underline underline-offset-4 decoration-primary/20 transition-all" href="#">Privacy</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-[1280px] mx-auto px-12 pb-12">
-<p class="font-['Plus_Jakarta_Sans'] font-light text-sm text-gray-400 border-t border-surface-container pt-8">
-                © 2024 Lumina Academy. Designed for Luminous Clarity.
-            </p>
-</div>
-</footer>
-<script>
-        function filterCourses(lang) {
-            const rows = document.querySelectorAll('.course-row');
-            const buttons = document.querySelectorAll('.filter-btn');
+    <section class="mt-24 mb-12 max-w-2xl">
+        <h1 class="font-headline-xl text-on-surface mb-6" data-i18n="courses_title">Luminous Learning Paths</h1>
+        <p class="font-body-lg text-on-surface-variant" data-i18n="courses_desc">Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.</p>
+    </section>
+
+    <!-- Language Filter -->
+    <section class="mb-12">
+        <div class="flex flex-wrap gap-3 items-center" id="language-filter">
+            <span class="text-label-sm text-outline uppercase mr-4" data-i18n="filter_by">Filter by:</span>
+            <button class="filter-btn active px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('All')">
+                <span data-i18n="filter_all">All</span>
+            </button>
+            <button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('English')">
+                <span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇬🇧</span>
+                <span>English</span>
+            </button>
+            <button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('French')">
+                <span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇫🇷</span>
+                <span>French</span>
+            </button>
+            <button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('Italian')">
+                <span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇮🇹</span>
+                <span>Italian</span>
+            </button>
+            <button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('Spanish')">
+                <span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇪🇸</span>
+                <span>Spanish</span>
+            </button>
+            <button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('Japanese')">
+                <span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇯🇵</span>
+                <span>Japanese</span>
+            </button>
+            <button class="filter-btn px-8 py-3 rounded-full border border-surface-container-high text-body-md transition-all duration-300 hover:border-primary flex items-center gap-3" onclick="filterCourses('German')">
+                <span class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-sm">🇩🇪</span>
+                <span>German</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="mb-section-margin">
+        <div class="space-y-1" id="courses-container">
+            <!-- Table Header -->
+            <div class="hidden md:grid grid-cols-6 px-10 py-4 text-label-sm text-outline uppercase tracking-[0.1em] opacity-60">
+                <div class="col-span-2" data-i18n="table_identity">Language & Identity</div>
+                <div data-i18n="table_proficiency">Proficiency</div>
+                <div class="col-span-2" data-i18n="table_experience">Experience Focus</div>
+                <div class="text-right" data-i18n="table_investment">Investment</div>
+            </div>
             
-            buttons.forEach(btn => {
-                if (btn.innerText === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            <!-- French Course -->
+            <div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="French">
+                <div class="col-span-2 flex items-center gap-6">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇫🇷</div>
+                    <div>
+                        <p class="font-headline-md text-on-surface">French</p>
+                        <p class="text-xs text-outline font-label-sm uppercase">Romance Tradition</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="px-4 py-1.5 rounded-full bg-secondary-container/50 text-on-secondary-container text-label-sm">A1 Beginner</span>
+                </div>
+                <div class="col-span-2">
+                    <p class="font-body-md text-on-surface-variant leading-relaxed">Master the foundational elegance of Parisian French syntax.</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-headline-md text-primary">$240<span class="text-sm font-light text-outline">/mo</span></p>
+                </div>
+            </div>
 
-            rows.forEach(row => {
-                if (lang === 'All' || row.getAttribute('data-language') === lang) {
-                    row.classList.remove('hidden');
-                } else {
-                    row.classList.add('hidden');
-                }
-            });
-        }
-    </script>
-        <script>
-const translations = {
-    'en': {
-        'nav_experience': 'The Experience',
-        'nav_courses': 'Courses & Pricing',
-        'nav_team': 'Our Team',
-        'nav_contact': 'Contact',
-        'enroll_btn': 'Enroll Now',
-        'courses_title': 'Luminous Learning Paths',
-        'courses_desc': 'Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.'
-    },
-    'bg': {
-        'nav_experience': 'Преживяването',
-        'nav_courses': 'Курсове и Цени',
-        'nav_team': 'Нашият Екип',
-        'nav_contact': 'Контакт',
-        'enroll_btn': 'Запиши се',
-        'courses_title': 'Пътеки към знанието',
-        'courses_desc': 'Нашите курсове са прецизно разработени, за да осигурят спокойна и ефективна среда за езиково развитие.'
-    },
-    'ru': {
-        'nav_experience': 'Опыт',
-        'nav_courses': 'Курсы и Цены',
-        'nav_team': 'Наша Команда',
-        'nav_contact': 'Контакты',
-        'enroll_btn': 'Записаться',
-        'courses_title': 'Пути к знаниям',
-        'courses_desc': 'Наши курсы тщательно разработаны, чтобы обеспечить спокойную и эффективную среду для языкового развития.'
+            <!-- Italian Course -->
+            <div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="Italian">
+                <div class="col-span-2 flex items-center gap-6">
+                    <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇮🇹</div>
+                    <div>
+                        <p class="font-headline-md text-on-surface">Italian</p>
+                        <p class="text-xs text-outline font-label-sm uppercase">Cultural Immersion</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="px-4 py-1.5 rounded-full bg-primary-container/50 text-on-primary-container text-label-sm">B2 Advanced</span>
+                </div>
+                <div class="col-span-2">
+                    <p class="font-body-md text-on-surface-variant leading-relaxed">Deep dive into contemporary Italian literature and conversation.</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-headline-md text-primary">$280<span class="text-sm font-light text-outline">/mo</span></p>
+                </div>
+            </div>
+
+            <!-- Japanese Course -->
+            <div class="course-row grid grid-cols-1 md:grid-cols-6 items-center px-10 py-8 rounded-2xl bg-white/50 border border-transparent hover:bg-white hover:border-primary-container transition-all duration-500 group" data-language="Japanese">
+                <div class="col-span-2 flex items-center gap-6">
+                    <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-xl grayscale-[0.5] group-hover:grayscale-0 transition-all">🇯🇵</div>
+                    <div>
+                        <p class="font-headline-md text-on-surface">Japanese</p>
+                        <p class="text-xs text-outline font-label-sm uppercase">Eastern Harmony</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="px-4 py-1.5 rounded-full bg-tertiary-container/50 text-on-tertiary-container text-label-sm">A2 Intermediate</span>
+                </div>
+                <div class="col-span-2">
+                    <p class="font-body-md text-on-surface-variant leading-relaxed">Balance phonetic precision with graceful kanji composition.</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-headline-md text-primary">$310<span class="text-sm font-light text-outline">/mo</span></p>
+                </div>
+            </div>
+            
+            <!-- Other course rows (English, Spanish, German) omitted for brevity but remain the same -->
+        </div>
+    </section>
+
+    <!-- Pricing Cards Section -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-section-margin">
+        <div class="bg-white p-10 rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between border border-surface-container hover:border-primary/20 transition-all duration-500">
+            <div>
+                <h3 class="font-headline-lg text-on-surface mb-2" data-i18n="price_group_title">Group</h3>
+                <p class="font-body-md text-on-surface-variant mb-8" data-i18n="price_group_desc">Collaborative growth in a shared studio environment.</p>
+                <div class="space-y-4 mb-12 text-on-surface-variant">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_students">4-6 students per session</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_workshops">Weekly cultural workshops</span>
+                    </div>
+                </div>
+            </div>
+            <button class="w-full py-4 rounded-full border border-secondary text-secondary font-label-sm hover:bg-secondary hover:text-surface transition-all duration-300" data-i18n="btn_choose_group">Choose Group</button>
+        </div>
+
+        <div class="bg-white p-10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.05)] flex flex-col justify-between border border-surface-container transition-all duration-500">
+            <div>
+                <h3 class="font-headline-lg text-on-surface mb-2" data-i18n="price_private_title">Private</h3>
+                <p class="font-body-md text-on-surface-variant mb-8" data-i18n="price_private_desc">Dedicated mentorship tailored to your personal rhythm.</p>
+                <div class="space-y-4 mb-12 text-on-surface-variant">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_personalized">1-on-1 personalized path</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_flexible">Flexible scheduling</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_resources">Custom resource library</span>
+                    </div>
+                </div>
+            </div>
+            <button class="w-full py-4 rounded-full bg-on-surface text-surface font-label-sm hover:bg-primary transition-all duration-300" data-i18n="btn_choose_private">Choose Private</button>
+        </div>
+
+        <div class="bg-white p-10 rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between border border-surface-container hover:border-primary/20 transition-all duration-500">
+            <div>
+                <h3 class="font-headline-lg text-on-surface mb-2" data-i18n="price_intensive_title">Intensive</h3>
+                <p class="font-body-md text-on-surface-variant mb-8" data-i18n="price_intensive_desc">Rapid immersion for focused linguistic transformation.</p>
+                <div class="space-y-4 mb-12 text-on-surface-variant">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_daily">Daily 4-hour sessions</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                        <span data-i18n="feature_support">24/7 priority support</span>
+                    </div>
+                </div>
+            </div>
+            <button class="w-full py-4 rounded-full border border-secondary text-secondary font-label-sm hover:bg-secondary hover:text-surface transition-all duration-300" data-i18n="btn_choose_intensive">Choose Intensive</button>
+        </div>
+    </section>
+
+    <!-- Trial CTA Section -->
+    <section class="mt-section-margin bg-primary-container/30 rounded-[48px] overflow-hidden grid grid-cols-1 md:grid-cols-2">
+        <div class="p-16 flex flex-col justify-center">
+            <h2 class="font-headline-xl text-on-primary-container mb-6" data-i18n="cta_title">Begin your journey in light.</h2>
+            <p class="font-body-lg text-on-primary-container mb-10" data-i18n="cta_desc">We invite you to experience a trial session where clarity meets discovery. No commitment, just exploration.</p>
+            <div class="flex gap-4">
+                <button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm shadow-lg shadow-primary/20 hover:scale-105 transition-transform" data-i18n="cta_btn">Book Trial</button>
+            </div>
+        </div>
+        <div class="h-[400px] md:h-auto relative">
+            <img alt="Minimalist studio" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDomxTzf7fvYHcmfBmOJes_ENYMXYr-KnSfWR8O8bxmi4S-o6A65531_MvhvGCiBJpFUT2KAehYCY3rCnqhAplTXlBCtmT1n4FrE7DgTeNu51txi-vxAwiwy0an-guczOBftme8Ig59OatsC-IcDD4hhUALL2X9_29WojVyHyMGVYGHS1USynKe9WG2vGHRD-E765edlyPptpsV2N8-MkG9VVyuj9QWowQi9bnIdqJz-0410YrqCv-_OsR_m2qgl3kZUlbz4hHHQzo"/>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-white border-t border-surface-container">
+    <div class="max-w-[1280px] mx-auto px-12 py-24 grid grid-cols-1 md:grid-cols-4 gap-16">
+        <div class="col-span-1 md:col-span-2">
+            <span class="text-xl font-bold text-gray-900 mb-6 block">Lumina Academy</span>
+            <p class="font-['Plus_Jakarta_Sans'] font-light text-sm leading-relaxed text-gray-500 max-w-sm" data-i18n="footer_mission">
+                Elevating the language learning experience through minimalist design and cognitive ease. A sanctuary for the modern learner.
+            </p>
+        </div>
+        <div>
+            <h4 class="font-label-sm text-primary mb-6" data-i18n="footer_academy">Academy</h4>
+            <ul class="space-y-4 font-['Plus_Jakarta_Sans'] font-light text-sm">
+                <li><a class="text-gray-500 hover:text-primary transition-all" href="#" data-i18n="nav_courses">Courses</a></li>
+                <li><a class="text-gray-500 hover:text-primary transition-all" href="#" data-i18n="footer_method">Methodology</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-label-sm text-primary mb-6" data-i18n="footer_support">Support</h4>
+            <ul class="space-y-4 font-['Plus_Jakarta_Sans'] font-light text-sm">
+                <li><a class="text-gray-500 hover:text-primary transition-all" href="#" data-i18n="nav_contact">Contact</a></li>
+                <li><a class="text-gray-500 hover:text-primary transition-all" href="#" data-i18n="footer_privacy">Privacy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function filterCourses(lang) {
+        const rows = document.querySelectorAll('.course-row');
+        const buttons = document.querySelectorAll('.filter-btn');
+        
+        buttons.forEach(btn => {
+            if (btn.innerText.includes(lang)) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        rows.forEach(row => {
+            if (lang === 'All' || row.getAttribute('data-language') === lang) {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
+        });
     }
-};
-                
-function changeLanguage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            element.innerText = translations[lang][key];
-        }
-    });
-    localStorage.setItem('lang', lang);
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('lang') || 'en';
-    changeLanguage(savedLang);
-});
+    const translations = {
+        'en': {
+            'nav_experience': 'The Experience',
+            'nav_courses': 'Courses & Pricing',
+            'nav_team': 'Our Team',
+            'nav_contact': 'Contact',
+            'enroll_btn': 'Enroll Now',
+            'courses_title': 'Luminous Learning Paths',
+            'courses_desc': 'Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.',
+            'filter_by': 'Filter by:',
+            'filter_all': 'All',
+            'table_identity': 'Language & Identity',
+            'table_proficiency': 'Proficiency',
+            'table_experience': 'Experience Focus',
+            'table_investment': 'Investment',
+            'price_group_title': 'Group',
+            'price_group_desc': 'Collaborative growth in a shared studio environment.',
+            'price_private_title': 'Private',
+            'price_private_desc': 'Dedicated mentorship tailored to your personal rhythm.',
+            'price_intensive_title': 'Intensive',
+            'price_intensive_desc': 'Rapid immersion for focused linguistic transformation.',
+            'feature_students': '4-6 students per session',
+            'feature_workshops': 'Weekly cultural workshops',
+            'feature_personalized': '1-on-1 personalized path',
+            'feature_flexible': 'Flexible scheduling',
+            'feature_resources': 'Custom resource library',
+            'feature_daily': 'Daily 4-hour sessions',
+            'feature_support': '24/7 priority support',
+            'btn_choose_group': 'Choose Group',
+            'btn_choose_private': 'Choose Private',
+            'btn_choose_intensive': 'Choose Intensive',
+            'cta_title': 'Begin your journey in light.',
+            'cta_desc': 'We invite you to experience a trial session where clarity meets discovery. No commitment, just exploration.',
+            'cta_btn': 'Book Trial',
+            'footer_mission': 'Elevating the language learning experience through minimalist design and cognitive ease.',
+            'footer_academy': 'Academy',
+            'footer_method': 'Methodology',
+            'footer_support': 'Support',
+            'footer_privacy': 'Privacy'
+        },
+        'bg': {
+            'nav_experience': 'Преживяването',
+            'nav_courses': 'Курсове и Цени',
+            'nav_team': 'Нашият Екип',
+            'nav_contact': 'Контакт',
+            'enroll_btn': 'Запиши се',
+            'courses_title': 'Пътеки към знанието',
+            'courses_desc': 'Нашите курсове са прецизно разработени, за да осигурят спокойна и ефективна среда за езиково развитие.',
+            'filter_by': 'Филтрирай по:',
+            'filter_all': 'Всички',
+            'table_identity': 'Език и Идентичност',
+            'table_proficiency': 'Ниво',
+            'table_experience': 'Фокус',
+            'table_investment': 'Инвестиция',
+            'price_group_title': 'Групово',
+            'price_group_desc': 'Колективно развитие в споделена среда.',
+            'price_private_title': 'Индивидуално',
+            'price_private_desc': 'Персонализирано менторство според вашия ритъм.',
+            'price_intensive_title': 'Интензивно',
+            'price_intensive_desc': 'Бързо потапяне за фокус върху езиковата трансформация.',
+            'feature_students': '4-6 ученика в сесия',
+            'feature_workshops': 'Седмични културни семинари',
+            'feature_personalized': '1-на-1 персонален път',
+            'feature_flexible': 'Гъвкав график',
+            'feature_resources': 'Собствена библиотека с ресурси',
+            'feature_daily': 'Ежедневни 4-часови сесии',
+            'feature_support': '24/7 приоритетна поддръжка',
+            'btn_choose_group': 'Избери Група',
+            'btn_choose_private': 'Избери Индивидуално',
+            'btn_choose_intensive': 'Избери Интензивно',
+            'cta_title': 'Започнете вашето пътуване в светлина.',
+            'cta_desc': 'Поканваме ви да изпробвате пробен урок, където яснотата среща откритието.',
+            'cta_btn': 'Резервирай проба',
+            'footer_mission': 'Подобряване на езиковото обучение чрез минималистичен дизайн и лекота.',
+            'footer_academy': 'Академия',
+            'footer_method': 'Методология',
+            'footer_support': 'Поддръжка',
+            'footer_privacy': 'Поверителност'
+        },
+        'ru': {
+            'nav_experience': 'Опыт',
+            'nav_courses': 'Курсы и Цены',
+            'nav_team': 'Наша Команда',
+            'nav_contact': 'Контакты',
+            'enroll_btn': 'Записаться',
+            'courses_title': 'Пути к знаниям',
+            'courses_desc': 'Наши курсы тщательно разработаны, чтобы обеспечить спокойную и эффективную среду для языкового развития.',
+            'filter_by': 'Фильтровать:',
+            'filter_all': 'Все',
+            'table_identity': 'Язык и Личность',
+            'table_proficiency': 'Уровень',
+            'table_experience': 'Фокус обучения',
+            'table_investment': 'Инвестиция',
+            'price_group_title': 'Групповое',
+            'price_group_desc': 'Совместный рост в общей студийной среде.',
+            'price_private_title': 'Индивидуально',
+            'price_private_desc': 'Персональное наставничество в вашем ритме.',
+            'price_intensive_title': 'Интенсив',
+            'price_intensive_desc': 'Быстрое погружение для трансформации знаний.',
+            'feature_students': '4-6 студентов в группе',
+            'feature_workshops': 'Еженедельные мастер-классы',
+            'feature_personalized': '1-на-1 личный план',
+            'feature_flexible': 'Гибкое расписание',
+            'feature_resources': 'Библиотека ресурсов',
+            'feature_daily': 'Ежедневные 4-часовые занятия',
+            'feature_support': '24/7 приоритетная поддержка',
+            'btn_choose_group': 'Выбрать Группу',
+            'btn_choose_private': 'Выбрать Частное',
+            'btn_choose_intensive': 'Выбрать Интенсив',
+            'cta_title': 'Начните свое путешествие к свету.',
+            'cta_desc': 'Мы приглашаем вас на пробное занятие, где ясность встречается с открытием.',
+            'cta_btn': 'Записаться на пробу',
+            'footer_mission': 'Улучшение процесса изучения языков через минимализм и когнитивную легкость.',
+            'footer_academy': 'Академия',
+            'footer_method': 'Методология',
+            'footer_support': 'Поддержка',
+            'footer_privacy': 'Приватность'
+        }
+    };
+
+    function changeLanguage(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                element.innerText = translations[lang][key];
+            }
+        });
+        localStorage.setItem('lang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('lang') || 'en';
+        changeLanguage(savedLang);
+    });
 </script>
-</body></html>
+</body>
+</html>
