@@ -264,11 +264,13 @@
 </footer>
         <script>
 <script>
+<script>
 let translations = {};
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/1PNf9TGeAYwpGclp0JNkDpNHKpta_T0FNZ4ld30-eutQ/export?format=csv";
+// ✅ Your NEW published Google Sheets CSV
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIWNv85ALfJcf9HNOrEXrFFa7doPecEHNTIlbg5W8bdPlLJRXLUQvV3WP5BXlT8rlWIrlSjs3K4C0e/pub?output=csv";
 
-// ✅ Robust CSV parser (handles commas + quotes)
+// ✅ Robust CSV parser (supports commas & quotes)
 function parseCSV(text) {
     const rows = [];
     let row = [];
@@ -286,17 +288,19 @@ function parseCSV(text) {
         } else if (char === ',' && !insideQuotes) {
             row.push(value);
             value = "";
-        } else if (char === '\n' && !insideQuotes) {
-            row.push(value);
-            rows.push(row);
-            row = [];
-            value = "";
+        } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+            if (value || row.length) {
+                row.push(value);
+                rows.push(row);
+                row = [];
+                value = "";
+            }
         } else {
             value += char;
         }
     }
 
-    if (value) {
+    if (value || row.length) {
         row.push(value);
         rows.push(row);
     }
@@ -314,7 +318,7 @@ async function loadTranslations() {
 
         translations = {};
 
-        // init languages dynamically
+        // Init languages dynamically
         headers.slice(2).forEach(lang => {
             translations[lang.trim()] = {};
         });
@@ -327,7 +331,7 @@ async function loadTranslations() {
 
             if (!key) return;
 
-            // 🔹 filter by page
+            // 🔹 Only load translations for current page
             if (page && page !== currentPage) return;
 
             headers.slice(2).forEach((lang, index) => {
