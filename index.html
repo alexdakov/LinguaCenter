@@ -118,6 +118,7 @@
 <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-teal-500 transition-all duration-300" href="courses.html" data-i18n="nav_courses">Courses & Pricing</a>
 <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-teal-500 transition-all duration-300" href="team.html" data-i18n="nav_team">Our Team</a>
 <a class="font-['Plus_Jakarta_Sans'] font-light tracking-wide text-sm text-gray-500 hover:text-teal-500 transition-all duration-300" href="contact.html" data-i18n="nav_contact">Contact</a>
+</nav>
 <div class="flex items-center gap-6">
     <!-- Flag Icons -->
     <div class="flex gap-3">
@@ -136,13 +137,14 @@
         <span data-i18n="enroll_btn">Enroll Now</span>
     </button>
 </div>
+</div>
 </header>
 <main class="max-w-[1280px] mx-auto px-12">
 <!-- Hero Section -->
 <section class="mt-section-margin grid md:grid-cols-2 items-center gap-gutter">
 <div class="flex flex-col gap-8">
 <h1 class="font-headline-xl text-on-surface" data-i18n="hero_title">Luminous Progress.</h1>
-<p class="font-body-lg text-on-surface-variant max-w-md">
+<p class="font-body-lg text-on-surface-variant max-w-md" data-i18n="hero_desc">
                     Experience a boutique language journey where clarity meets minimalism. We strip away the noise to let your potential shine.
                 </p>
 <div class="flex gap-4 items-center">
@@ -269,16 +271,6 @@ const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIWNv85ALfJc
 
 let translations = { en: {}, bg: {}, ru: {} };
 
-// 🔥 FIXED page detection (this was likely breaking it)
-function getCurrentPage() {
-    let path = window.location.pathname;
-
-    // If opened locally or root → default to index.html
-    if (!path || path === "/" || path === "") return "index.html";
-
-    return path.split("/").pop();
-}
-
 async function loadTranslations() {
     try {
         const res = await fetch(SHEET_URL);
@@ -289,33 +281,22 @@ async function loadTranslations() {
             skipEmptyLines: true
         });
 
-        console.log("RAW DATA:", parsed.data); // 👈 DEBUG
-
-        const currentPage = getCurrentPage();
-        console.log("Current page:", currentPage); // 👈 DEBUG
-
         parsed.data.forEach(row => {
-            // 🔥 Normalize column names (VERY IMPORTANT)
-            const page = (row["Page/html"] || row["Page"] || "").trim();
+            // Get Key from spreadsheet column 'Key'
             const key = (row["Key"] || "").trim();
+            if (!key) return;
 
-            if (!page || !key) return;
-
-            // 🔥 TEMP: remove filtering to test
-            // if (page !== currentPage) return;
-
+            // Load all translations globally
             translations.en[key] = row["en"] || "";
             translations.bg[key] = row["bg"] || "";
             translations.ru[key] = row["ru"] || "";
         });
 
-        console.log("PARSED TRANSLATIONS:", translations); // 👈 DEBUG
-
         const savedLang = localStorage.getItem("lang") || "en";
         changeLanguage(savedLang);
 
     } catch (err) {
-        console.error("ERROR:", err);
+        console.error("Translation Load Error:", err);
     }
 }
 
@@ -325,8 +306,6 @@ function changeLanguage(lang) {
 
         if (translations[lang] && translations[lang][key]) {
             el.innerText = translations[lang][key];
-        } else {
-            console.warn("Missing key:", key);
         }
     });
 
