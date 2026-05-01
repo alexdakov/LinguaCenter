@@ -139,8 +139,10 @@
 </nav>
 <main class="max-w-[1280px] mx-auto px-12 pb-32">
 <section class="mt-24 mb-12 max-w-2xl">
-<h1 class="font-headline-xl text-on-surface mb-6">Luminous Learning Paths</h1>
-<p class="font-body-lg text-on-surface-variant">Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.</p>
+    <!-- Added data-i18n="courses_title" -->
+    <h1 class="font-headline-xl text-on-surface mb-6" data-i18n="courses_title">Luminous Learning Paths</h1>
+    <!-- Added data-i18n="courses_desc" -->
+    <p class="font-body-lg text-on-surface-variant" data-i18n="courses_desc">Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.</p>
 </section>
 <!-- Language Filter -->
 <section class="mb-12">
@@ -432,8 +434,8 @@ const translations = {
         'nav_team': 'Our Team',
         'nav_contact': 'Contact',
         'enroll_btn': 'Enroll Now',
-        'hero_title': 'Luminous Progress.',
-        'hero_desc': 'Experience a boutique language journey where clarity meets minimalism.'
+        'courses_title': 'Luminous Learning Paths',
+        'courses_desc': 'Our courses are meticulously crafted to provide a serene, effective environment for linguistic growth. Choose your path toward luminous clarity.'
     },
     'bg': {
         'nav_experience': 'Преживяването',
@@ -441,8 +443,8 @@ const translations = {
         'nav_team': 'Нашият Екип',
         'nav_contact': 'Контакт',
         'enroll_btn': 'Запиши се',
-        'hero_title': 'Светъл Прогрес.',
-        'hero_desc': 'Изживейте бутиково езиково пътешествие, където яснотата среща минимализма.'
+        'courses_title': 'Пътеки към знанието',
+        'courses_desc': 'Нашите курсове са прецизно разработени, за да осигурят спокойна и ефективна среда за езиково развитие.'
     },
     'ru': {
         'nav_experience': 'Опыт',
@@ -450,11 +452,11 @@ const translations = {
         'nav_team': 'Наша Команда',
         'nav_contact': 'Контакты',
         'enroll_btn': 'Записаться',
-        'hero_title': 'Светлый Прогресс.',
-        'hero_desc': 'Начните уникальное языковое путешествие, где ясность встречается с минимализмом.'
+        'courses_title': 'Пути к знаниям',
+        'courses_desc': 'Наши курсы тщательно разработаны, чтобы обеспечить спокойную и эффективную среду для языкового развития.'
     }
 };
-
+                
 function changeLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
