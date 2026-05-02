@@ -145,33 +145,28 @@
 </section>
 <!-- Form Canvas Section -->
 <section class="max-w-5xl mx-auto px-8 relative">
-<!-- Decorative Elements -->
-<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
-<div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl -z-10"></div>
-<!-- Google Form Placeholder Container -->
-<div class="relative rounded-xl overflow-hidden bg-white coral-glow border border-outline-variant/20 min-h-[800px] flex flex-col items-center justify-center group">
-<!-- Abstract Background for Placeholder -->
-<div class="absolute inset-0 opacity-10 pointer-events-none transition-opacity group-hover:opacity-20">
-<img class="w-full h-full object-cover" data-alt="A clean, minimalist high-key abstract background with soft pink and cream gradients and organic flowing shapes. The image feels airy and professional, reflecting a premium educational atmosphere with modern lighting and plenty of negative space for UI overlay." src="https://lh3.googleusercontent.com/aida/ADBb0uhcxn2YFFI7UjkYUcLZMIu6KXRlCNZOdCSPCwoFWmMf9g5q_v6kk0ua_fIWOPz4gdfUs_Ta7libLnUYF8GFXqVj36Th7cIWnGYfmlfC6e34AoPnUz1k7EARqs6SAZR7I4qV66Yu0RIJuBdk7rqBE4vI_JQ7NqEjeBHtsc4msI9AaJEn1PXikwklNFCUxM-B11i4xlQJN6hCKfkjNfKXaqN7PxkLAIhDRFRCEf_PcHvFPVYUgc3f1ySEwX06jxFj4yd40N-oc2Ec2Qc"/>
-</div>
-<div class="relative z-10 flex flex-col items-center text-center p-12 max-w-md">
-<div class="w-20 h-20 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-8">
-<span class="material-symbols-outlined text-[40px] text-primary-container">description</span>
-</div>
-<h3 class="font-h3 text-h3 text-on-surface mb-4">Enrollment Application</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8">
-                        Your Google Form will be embedded here. It will automatically integrate with our clean, coral-themed aesthetic.
-                    </p>
-<div class="flex items-center gap-3 text-primary font-label-md">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        Ready for Integration
-                    </div>
-</div>
-<!-- Simulating a progress indicator as requested in Brand Guidelines -->
-<div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-container">
-<div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
-</div>
-</div>
+  <!-- Decorative Elements -->
+  <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl -z-10"></div>
+
+  <!-- Google Form Container -->
+  <div class="relative rounded-xl overflow-hidden bg-white coral-glow border border-outline-variant/20 h-[800px] shadow-sm">
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLScwOogiQ_Eq4pPsCOCl85k5BnVzjy-7NGCCGnQwoqYVN0vruA/viewform?embedded=true" 
+      width="100%" 
+      height="800" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0"
+      class="w-full h-full border-none">
+      Loading…
+    </iframe>
+
+    <!-- Progress indicator remains at the very bottom of the frame -->
+    <div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-container">
+      <div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
+    </div>
+  </div>
 </section>
 <!-- Informational Grid -->
 </main>
