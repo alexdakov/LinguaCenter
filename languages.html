@@ -142,196 +142,51 @@
         </div>
     </div>
 </nav>
-<main class="pt-20">
-<!-- Languages We Teach Section -->
-<section class="py-section-padding bg-surface-bright">
-<div class="max-w-[1200px] mx-auto px-gutter text-center mb-16">
-<span class="text-primary font-label-md uppercase tracking-widest mb-4 block">Our Curriculum</span>
-<h2 class="font-h1 text-h1 text-on-surface mb-stack-md">Course Catalog</h2>
-<div class="w-24 h-1 bg-primary-container mx-auto rounded-full"></div>
+
+<main class="pt-20 font-sans">
+    <section class="py-16 bg-[#F8FAFC]">
+        <div class="max-w-[1200px] mx-auto px-6 text-center mb-16">
+            <span class="text-[#B03A48] text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Our Curriculum</span>
+            <h2 class="text-4xl md:text-5xl font-h1 font-bold text-on-surface mb-8">Course Catalog</h2>
+            
+            <!-- FLAG FILTER BAR -->
+            <div id="language-nav" class="flex flex-wrap justify-center items-center gap-4 mb-10 text-slate-300">
+                <!-- Injected via JS -->
+            </div>
+
+            <div class="w-24 h-1 bg-rose-100 mx-auto rounded-full mb-12"></div>
+
+<!-- FILTERS -->
+<div class="flex flex-col md:flex-row items-center justify-center gap-10 bg-white p-6 rounded-2xl shadow-sm border border-slate-100 max-w-3xl mx-auto mb-16">
+    <!-- Toggle Section -->
+    <div class="flex items-center gap-4">
+        <span id="label-group" class="text-sm font-bold text-primary">Group</span>
+        <button onclick="toggleType()" id="type-toggle" class="w-12 h-6 rounded-full relative p-1 transition-all duration-300" style="background-color: #64748b;">
+            <div id="toggle-knob" class="w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300 transform translate-x-0"></div>
+        </button>
+        <span id="label-individual" class="text-sm font-bold text-slate-400">Individual</span>
+    </div>
+
+    <!-- Vertical Divider -->
+    <div class="hidden md:block w-px h-6 bg-slate-200"></div>
+
+    <!-- Currency Section (Cleaned up) -->
+    <div class="flex items-center gap-2" id="currency-bar">
+        <button onclick="setCurrency('usd')" class="curr-btn w-10 h-10 rounded-xl text-xl font-bold transition-all bg-white shadow-sm border border-rose-100 text-primary" data-curr="usd">$</button>
+        <button onclick="setCurrency('eur')" class="curr-btn w-10 h-10 rounded-xl text-xl font-bold transition-all text-slate-400 hover:text-primary" data-curr="eur">€</button>
+        <button onclick="setCurrency('rub')" class="curr-btn w-10 h-10 rounded-xl text-xl font-bold transition-all text-slate-400 hover:text-primary" data-curr="rub">₽</button>
+        <button onclick="setCurrency('cny')" class="curr-btn w-10 h-10 rounded-xl text-xl font-bold transition-all text-slate-400 hover:text-primary" data-curr="cny">¥</button>
+    </div>
 </div>
-<div class="max-w-[1200px] mx-auto px-gutter flex flex-col gap-16">
-<!-- Spanish Section -->
-<div class="space-y-8">
-<div class="flex items-center gap-4 border-l-4 border-primary pl-6">
-<div class="text-4xl">🇪🇸</div>
-<div>
-<h3 class="font-h2 text-h3 text-on-surface">Spanish Language Courses</h3>
-<p class="text-tertiary mt-1">Master the language of Cervantes through immersive conversation and cultural deep-dives.</p>
-</div>
-</div>
-<div class="overflow-x-auto rounded-xl border border-outline-variant/30 coral-shadow">
-<table class="w-full text-left border-collapse table-stripe">
-<thead class="bg-primary text-on-primary">
-<tr>
-<th class="p-5 font-semibold">Course Name</th>
-<th class="p-5 font-semibold">Level</th>
-<th class="p-5 font-semibold">Duration</th>
-<th class="p-5 font-semibold">Type</th>
-<th class="p-5 font-semibold">Price</th>
-</tr>
-</thead>
-<tbody class="text-on-surface-variant bg-white">
-<tr>
-<td class="p-5 font-medium">Spanish Foundations</td>
-<td class="p-5">A1 - A2</td>
-<td class="p-5">60 min</td>
-<td class="p-5">Group</td>
-<td class="p-5 font-bold text-primary">$320 / term</td>
-</tr>
-<tr>
-<td class="p-5 font-medium">Conversational Mastery</td>
-<td class="p-5">B1 - B2</td>
-<td class="p-5">90 min</td>
-<td class="p-5">Individual</td>
-<td class="p-5 font-bold text-primary">$450 / term</td>
-</tr>
-<tr>
-<td class="p-5 font-medium">Business Spanish</td>
-<td class="p-5">C1</td>
-<td class="p-5">60 min</td>
-<td class="p-5">Group</td>
-<td class="p-5 font-bold text-primary">$380 / term</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- French Section -->
-<div class="space-y-8">
-<div class="flex items-center gap-4 border-l-4 border-primary pl-6">
-<div class="text-4xl">🇫🇷</div>
-<div>
-<h3 class="font-h2 text-h3 text-on-surface">French Language Courses</h3>
-<p class="text-tertiary mt-1">Experience the elegance of French with our curated curriculum focusing on precision and literature.</p>
-</div>
-</div>
-<div class="overflow-x-auto rounded-xl border border-outline-variant/30 coral-shadow">
-<table class="w-full text-left border-collapse table-stripe">
-<thead class="bg-primary text-on-primary">
-<tr>
-<th class="p-5 font-semibold">Course Name</th>
-<th class="p-5 font-semibold">Level</th>
-<th class="p-5 font-semibold">Duration</th>
-<th class="p-5 font-semibold">Type</th>
-<th class="p-5 font-semibold">Price</th>
-</tr>
-</thead>
-<tbody class="text-on-surface-variant bg-white">
-<tr>
-<td class="p-5 font-medium">L'Art de Parler</td>
-<td class="p-5">A1 - B1</td>
-<td class="p-5">45 min</td>
-<td class="p-5">Group</td>
-<td class="p-5 font-bold text-primary">$350 / term</td>
-</tr>
-<tr>
-<td class="p-5 font-medium">Advanced Literature</td>
-<td class="p-5">C1 - C2</td>
-<td class="p-5">60 min</td>
-<td class="p-5">Individual</td>
-<td class="p-5 font-bold text-primary">$500 / term</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- German Section -->
-<div class="space-y-8">
-<div class="flex items-center gap-4 border-l-4 border-primary pl-6">
-<div class="text-4xl">🇩🇪</div>
-<div>
-<h3 class="font-h2 text-h3 text-on-surface">German Language Courses</h3>
-<p class="text-tertiary mt-1">Build a strong foundation in German grammar and business communication.</p>
-</div>
-</div>
-<div class="overflow-x-auto rounded-xl border border-outline-variant/30 coral-shadow">
-<table class="w-full text-left border-collapse table-stripe">
-<thead class="bg-primary text-on-primary">
-<tr>
-<th class="p-5 font-semibold">Course Name</th>
-<th class="p-5 font-semibold">Level</th>
-<th class="p-5 font-semibold">Duration</th>
-<th class="p-5 font-semibold">Type</th>
-<th class="p-5 font-semibold">Price</th>
-</tr>
-</thead>
-<tbody class="text-on-surface-variant bg-white">
-<tr>
-<td class="p-5 font-medium">German Intensive</td>
-<td class="p-5">A1 - C2</td>
-<td class="p-5">90 min</td>
-<td class="p-5">Group</td>
-<td class="p-5 font-bold text-primary">$400 / term</td>
-</tr>
-<tr>
-<td class="p-5 font-medium">Corporate German</td>
-<td class="p-5">B2 - C1</td>
-<td class="p-5">60 min</td>
-<td class="p-5">Individual</td>
-<td class="p-5 font-bold text-primary">$550 / term</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- Italian Section -->
-<div class="space-y-8">
-<div class="flex items-center gap-4 border-l-4 border-primary pl-6">
-<div class="text-4xl">🇮🇹</div>
-<div>
-<h3 class="font-h2 text-h3 text-on-surface">Italian Language Courses</h3>
-<p class="text-tertiary mt-1">Dive into the melodic world of Italian. Learn with passion and artistic flair.</p>
-</div>
-</div>
-<div class="overflow-x-auto rounded-xl border border-outline-variant/30 coral-shadow">
-<table class="w-full text-left border-collapse table-stripe">
-<thead class="bg-primary text-on-primary">
-<tr>
-<th class="p-5 font-semibold">Course Name</th>
-<th class="p-5 font-semibold">Level</th>
-<th class="p-5 font-semibold">Duration</th>
-<th class="p-5 font-semibold">Type</th>
-<th class="p-5 font-semibold">Price</th>
-</tr>
-</thead>
-<tbody class="text-on-surface-variant bg-white">
-<tr>
-<td class="p-5 font-medium">La Dolce Vita</td>
-<td class="p-5">A1 - A2</td>
-<td class="p-5">60 min</td>
-<td class="p-5">Group</td>
-<td class="p-5 font-bold text-primary">$300 / term</td>
-</tr>
-<tr>
-<td class="p-5 font-medium">Italian for Opera</td>
-<td class="p-5">B1+</td>
-<td class="p-5">45 min</td>
-<td class="p-5">Individual</td>
-<td class="p-5 font-bold text-primary">$420 / term</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<!-- Enrollment Banner -->
-<div class="mt-24 relative overflow-hidden">
-<div class="absolute inset-0 bg-primary-container opacity-10"></div>
-<div class="relative max-w-full bg-primary-container/20 py-12 px-gutter text-center border-y border-primary-container/20">
-<div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
-<div class="text-left">
-<h4 class="font-h2 text-h2 text-on-primary-container">Ready to start?</h4>
-<p class="font-body-lg text-on-primary-container/80 mt-2">Start anytime — individual or group sessions available.</p>
-</div>
-<button onclick="window.location.href='enrol.html'" class="bg-primary text-on-primary px-10 py-4 rounded-full font-bold shadow-lg hover:shadow-primary/25 hover:scale-105 transition-all active:scale-95 whitespace-nowrap">
-    Enroll Now
-</button>
-</div>
-</div>
-</div>
-</section>
+            </div>
+
+            <!-- THE MISSING PART: This is where the table is injected -->
+            <div id="catalog-container" class="max-w-5xl mx-auto text-left space-y-16"></div>
+
+        </div>
+    </section>
 </main>
+
 <!-- Footer -->
 <footer class="w-full py-12 bg-slate-50 dark:bg-slate-900 border-t border-rose-100 dark:border-slate-800">
     <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-8">
@@ -363,4 +218,17 @@
     </div>
 </footer>
 
+<style>
+    .material-symbols-outlined { ... }
+    .coral-shadow { ... }
+    .table-stripe tr:nth-child(even) { ... }
+
+    /* Add this here */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<script src="script.js"></script>
 </body></html>
