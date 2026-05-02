@@ -113,14 +113,36 @@
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container/30">
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-rose-50/50 dark:border-slate-800/50 shadow-sm shadow-rose-500/5">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20"><div class="text-2xl font-extrabold dark:text-rose-400 tracking-tight text-[#FF7582]">Aura Learning</div>
-<!-- Desktop Links -->
-<div class="hidden md:flex items-center gap-8">
-<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">Home</a>
-<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">About</a>
-<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">Languages</a>
-<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">Contact</a>
-</div>
+    <div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+        <!-- Logo points to home -->
+        <a href="index.html" class="text-2xl font-extrabold dark:text-rose-400 tracking-tight text-[#FF7582] hover:opacity-90 transition-opacity">Aura Learning</a>
+        
+        <!-- Desktop Links updated with file paths -->
+        <div class="hidden md:flex items-center gap-8">
+            <a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="index.html">Home</a>
+            <a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="about.html">About</a>
+            <a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="languages.html">Languages</a>
+            <a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="contact.html">Contact</a>
+        </div>
+
+        <!-- Language Switcher & Active Join Button -->
+        <div class="flex items-center gap-4">
+            <div class="flex items-center bg-rose-50/50 py-1.5 rounded-full text-xs font-semibold text-[#FF7582] gap-2 border border-rose-100/50 p-1">
+                <span class="cursor-pointer bg-primary-container text-white px-3 py-1 rounded-full flex items-center gap-1.5 transition-all">
+                    <span class="text-xs">🇺🇸</span> EN
+                </span>
+                <span class="cursor-pointer hover:bg-rose-100/50 px-3 py-1 rounded-full flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100">
+                    <span class="text-xs">🇧🇬</span> BG
+                </span>
+                <span class="cursor-pointer hover:bg-rose-100/50 px-3 py-1 rounded-full flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100">
+                    <span class="text-xs">🇷🇺</span> RU
+                </span>
+            </div>
+            <!-- This button stays on enrol.html -->
+            <button onclick="window.location.href='enrol.html'" class="bg-[#FF7582] text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 ease-in-out hover:shadow-lg transition-all">Join Now</button>
+        </div>
+    </div>
+</nav>
 <!-- Language Switcher Section -->
 <div class="flex items-center gap-4"><div class="flex items-center bg-rose-50/50 py-1.5 rounded-full text-xs font-semibold text-[#FF7582] gap-2 border border-rose-100/50 p-1">
 <span class="cursor-pointer bg-primary-container text-white px-3 py-1 rounded-full flex items-center gap-1.5 transition-all">
@@ -149,24 +171,24 @@
   <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
   <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl -z-10"></div>
 
-  <!-- Google Form Container -->
-  <div class="relative rounded-xl overflow-hidden bg-white coral-glow border border-outline-variant/20 h-[800px] shadow-sm">
+<!-- Google Form Container -->
+<div class="relative rounded-xl overflow-hidden bg-white coral-glow border border-outline-variant/20 h-[800px] shadow-sm">
     <iframe 
-      src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScwOogiQ_Eq4pPsCOCl85k5BnVzjy-7NGCCGnQwoqYVN0vruA/viewform?embedded=true" 
-      width="100%" 
-      height="1000" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0"
-      class="w-full h-full border-none">
-      Loading…
+        src="https://docs.google.com/forms/d/e/1FAIpQLScwOogiQ_Eq4pPsCOCl85k5BnVzjy-7NGCCGnQwoqYVN0vruA/viewform?embedded=true" 
+        width="100%" 
+        height="100%" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        class="w-full h-full border-none">
+        Loading…
     </iframe>
 
-    <!-- Progress indicator remains at the very bottom of the frame -->
+    <!-- Progress indicator -->
     <div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-container">
-      <div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
+        <div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
     </div>
-  </div>
+</div>
 </section>
 <!-- Informational Grid -->
 </main>
