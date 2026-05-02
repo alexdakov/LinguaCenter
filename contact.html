@@ -47,7 +47,7 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-rose-50/50 shadow-sm shadow-[#FF7582]/5 font-['Plus_Jakarta_SANS'] antialiased">
     <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-        <div class="text-2xl font-bold tracking-tight text-[#FF7582]">Aura Learning</div>
+        <div class="text-2xl font-bold tracking-tight text-[#FF7582]">LinguaBridge</div>
         
         <div class="hidden md:flex items-center gap-8">
             <a class="text-stone-600 hover:text-[#FF7582] transition-colors" href="index.html">Home</a>
@@ -153,25 +153,31 @@
 </main>
 
 <!-- Footer -->
-<footer class="w-full border-t border-stone-200 bg-stone-50">
-    <div class="flex flex-col items-center py-16 px-8 space-y-8 max-w-7xl mx-auto">
-        <div class="text-center">
-            <div class="text-xl font-bold text-stone-900">LinguaBridge</div>
-            <p class="text-sm text-stone-500 mt-1">Your Bridge to the World.</p>
+<footer class="w-full py-12 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-8">
+        <!-- Brand & Motto -->
+        <div class="flex flex-col items-center md:items-start">
+            <div class="text-lg font-bold text-slate-900 dark:text-white">LinguaBridge</div>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-[#FF7582] font-bold">Your Bridge to the World</p>
         </div>
-        
-        <div class="flex flex-wrap justify-center items-center gap-8 text-xs uppercase tracking-widest font-bold text-stone-500">
-            <a class="hover:text-[#FF7582]" href="#">Privacy Policy</a>
-            <a class="hover:text-[#FF7582]" href="#">Terms of Service</a>
-            <a class="hover:text-[#FF7582]" href="#">Cookie Settings</a>
-            <!-- New Requirement -->
-            <a href="#" class="flex items-center gap-1 px-3 py-1.5 border border-stone-200 rounded-full hover:text-red-500 hover:border-red-200 transition-all">
-                <span class="material-symbols-outlined text-sm">delete_forever</span>
+
+        <!-- Legal Links -->
+        <div class="flex flex-wrap justify-center gap-6">
+            <a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-[#FF7582] transition-colors" href="#">Privacy Policy</a>
+            <a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-[#FF7582] transition-colors" href="#">Terms</a>
+            <a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-[#FF7582] transition-colors" href="#">Cookie Settings</a>
+            
+            <!-- Privacy Action Link -->
+            <a href="#" class="flex items-center gap-1 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-400 hover:text-red-500 transition-colors">
+                <span class="material-symbols-outlined text-[16px]">delete_history</span>
                 Delete Data
             </a>
         </div>
-        
-        <div class="text-stone-400 text-xs">© 2026 LinguaBridge. All rights reserved.</div>
+
+        <!-- Copyright -->
+        <div class="text-slate-400 text-[10px] uppercase tracking-widest text-center md:text-right">
+            © 2026 LinguaBridge.<br class="hidden md:block"> Empowering global voices.
+        </div>
     </div>
 </footer>
 
