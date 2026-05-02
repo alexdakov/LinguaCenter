@@ -181,7 +181,7 @@
             </div>
 
             <!-- THE MISSING PART: This is where the table is injected -->
-            <div id="catalog-container" class="max-w-5xl mx-auto text-left space-y-16"></div>
+            <div id="catalog-container" class="max-w-5xl mx-auto text-left space-y-16">
 
         </div>
     </section>
@@ -192,8 +192,11 @@
     <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-8">
         
         <!-- Brand Section -->
-        <div class="flex flex-col items-center md:items-start space-y-1">
-            <div class="text-lg font-bold text-slate-900 dark:text-white">LinguaBridge</div>
+        <div class="flex flex-col items-center md:items-start">
+            <div class="flex items-baseline gap-2">
+                <span class="text-lg font-bold text-slate-900 dark:text-white">LinguaBridge</span>
+                <span class="text-slate-400 text-[10px] uppercase tracking-widest">2026</span>
+            </div>
             <p class="text-[10px] uppercase tracking-[0.2em] text-[#FF7582] font-extrabold">Your Bridge to the World</p>
         </div>
 
@@ -201,7 +204,6 @@
         <div class="flex flex-wrap justify-center gap-6">
             <a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-[#FF7582] transition-colors" href="#">Privacy Policy</a>
             <a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-[#FF7582] transition-colors" href="#">Terms</a>
-            <a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-[#FF7582] transition-colors" href="#">Cookie Settings</a>
             
             <!-- Privacy Action Link -->
             <a href="#" class="flex items-center gap-1 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-400 hover:text-red-500 transition-colors">
@@ -210,23 +212,48 @@
             </a>
         </div>
 
-        <!-- Copyright -->
-        <div class="text-slate-400 text-[10px] uppercase tracking-widest text-center md:text-right leading-tight">
-            © 2026 LinguaBridge.<br>
-            Empowering global voices.
+        <!-- Tutor Action -->
+        <div class="flex items-center">
+            <a href="tutor-signup.html" class="inline-flex items-center px-5 py-2 border-2 border-[#FF7582] text-[#FF7582] hover:bg-[#FF7582] hover:text-white transition-all duration-300 rounded-full text-xs font-bold uppercase tracking-widest">
+                Become Tutor
+            </a>
+        </div>
+    </div>
+</footer>
+
         </div>
     </div>
 </footer>
 
 <style>
-    .material-symbols-outlined { ... }
-    .coral-shadow { ... }
-    .table-stripe tr:nth-child(even) { ... }
+    /* Fixed: Removed invalid "..." and consolidated styles */
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        vertical-align: middle;
+    }
 
-    /* Add this here */
+    .coral-shadow {
+        box-shadow: 0 10px 30px -10px rgba(169, 52, 68, 0.12);
+    }
+
+    .table-stripe tr:nth-child(even) {
+        background-color: #fcf4f4;
+    }
+
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from { 
+            opacity: 0; 
+            transform: translateY(10px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+    
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
     }
 </style>
 
