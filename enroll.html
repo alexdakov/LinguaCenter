@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enroll in a Course | Aura Learning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e2e9ec",
+                        "inverse-on-surface": "#ebf2f4",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#a93444",
+                        "surface-dim": "#d4dbdd",
+                        "tertiary-container": "#a8a098",
+                        "on-tertiary-container": "#3c3731",
+                        "on-secondary-container": "#794e32",
+                        "tertiary": "#645d57",
+                        "primary-fixed": "#ffdada",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#815438",
+                        "on-tertiary-fixed": "#1f1b16",
+                        "on-surface-variant": "#574142",
+                        "surface-container-highest": "#dde4e6",
+                        "outline": "#8a7172",
+                        "background": "#f4fafd",
+                        "inverse-surface": "#2b3234",
+                        "surface": "#f4fafd",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#debfc0",
+                        "on-secondary-fixed-variant": "#653d23",
+                        "secondary-fixed-dim": "#f5ba97",
+                        "on-error": "#ffffff",
+                        "primary-container": "#ff7582",
+                        "surface-variant": "#dde4e6",
+                        "secondary-container": "#fec29f",
+                        "tertiary-fixed-dim": "#cec5bd",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#eae1d8",
+                        "surface-container": "#e8eff1",
+                        "primary": "#a93444",
+                        "surface-container-low": "#eef5f7",
+                        "on-surface": "#161d1f",
+                        "on-primary-container": "#730720",
+                        "on-error-container": "#93000a",
+                        "on-background": "#161d1f",
+                        "on-tertiary-fixed-variant": "#4b4640",
+                        "on-primary-fixed-variant": "#881b2e",
+                        "surface-bright": "#f4fafd",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#311300",
+                        "inverse-primary": "#ffb2b6",
+                        "primary-fixed-dim": "#ffb2b6",
+                        "on-primary-fixed": "#40000d",
+                        "secondary-fixed": "#ffdbc8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "section-padding": "80px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .coral-glow {
+            box-shadow: 0 10px 40px -10px rgba(255, 117, 130, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-rose-50/50 dark:border-slate-800/50 shadow-sm shadow-rose-500/5">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20"><div class="text-2xl font-extrabold dark:text-rose-400 tracking-tight text-[#FF7582]">Aura Learning</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">Home</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">About</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">Languages</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-wide text-slate-600 dark:text-slate-400 hover:text-rose-500 transition-all duration-300" href="#">Contact</a>
+</div>
+<!-- Language Switcher Section -->
+<div class="flex items-center gap-4"><div class="flex items-center bg-rose-50/50 py-1.5 rounded-full text-xs font-semibold text-[#FF7582] gap-2 border border-rose-100/50 p-1">
+<span class="cursor-pointer bg-primary-container text-white px-3 py-1 rounded-full flex items-center gap-1.5 transition-all">
+<span class="text-xs">🇺🇸</span> EN
+</span>
+<span class="cursor-pointer hover:bg-rose-100/50 px-3 py-1 rounded-full flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100">
+<span class="text-xs">🇧🇬</span> BG
+</span>
+<span class="cursor-pointer hover:bg-rose-100/50 px-3 py-1 rounded-full flex items-center gap-1.5 transition-all opacity-70 hover:opacity-100">
+<span class="text-xs">🇷🇺</span> RU
+</span>
+</div>
+<button class="bg-[#FF7582] text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 ease-in-out hover:shadow-lg transition-all">Join Now</button></div></div>
+</nav>
+<main class="pt-32 pb-section-padding">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-16 text-center">
+<h1 class="font-h1 text-h1 text-on-surface mb-6 max-w-2xl mx-auto">Enroll in a Course</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+                Begin your linguistic journey with Aura Learning. Fill out the application below to secure your spot in our premium language programs.
+            </p>
+</section>
+<!-- Form Canvas Section -->
+<section class="max-w-5xl mx-auto px-8 relative">
+<!-- Decorative Elements -->
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl -z-10"></div>
+<!-- Google Form Placeholder Container -->
+<div class="relative rounded-xl overflow-hidden bg-white coral-glow border border-outline-variant/20 min-h-[800px] flex flex-col items-center justify-center group">
+<!-- Abstract Background for Placeholder -->
+<div class="absolute inset-0 opacity-10 pointer-events-none transition-opacity group-hover:opacity-20">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist high-key abstract background with soft pink and cream gradients and organic flowing shapes. The image feels airy and professional, reflecting a premium educational atmosphere with modern lighting and plenty of negative space for UI overlay." src="https://lh3.googleusercontent.com/aida/ADBb0uhcxn2YFFI7UjkYUcLZMIu6KXRlCNZOdCSPCwoFWmMf9g5q_v6kk0ua_fIWOPz4gdfUs_Ta7libLnUYF8GFXqVj36Th7cIWnGYfmlfC6e34AoPnUz1k7EARqs6SAZR7I4qV66Yu0RIJuBdk7rqBE4vI_JQ7NqEjeBHtsc4msI9AaJEn1PXikwklNFCUxM-B11i4xlQJN6hCKfkjNfKXaqN7PxkLAIhDRFRCEf_PcHvFPVYUgc3f1ySEwX06jxFj4yd40N-oc2Ec2Qc"/>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center p-12 max-w-md">
+<div class="w-20 h-20 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-[40px] text-primary-container">description</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Enrollment Application</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                        Your Google Form will be embedded here. It will automatically integrate with our clean, coral-themed aesthetic.
+                    </p>
+<div class="flex items-center gap-3 text-primary font-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Ready for Integration
+                    </div>
+</div>
+<!-- Simulating a progress indicator as requested in Brand Guidelines -->
+<div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-container">
+<div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
+</div>
+</div>
+</section>
+<!-- Informational Grid -->
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col gap-2">
+<span class="font-bold text-[#FF7582] text-xl">Aura Learning</span>
+<p class="font-['Plus_Jakarta_Sans'] text-sm text-slate-500">© 2024 Aura Learning. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Plus_Jakarta_Sans'] text-sm">
+<a class="text-slate-500 hover:text-[#FF7582] hover:underline decoration-[#FF7582] underline-offset-4 cursor-pointer transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-[#FF7582] hover:underline decoration-[#FF7582] underline-offset-4 cursor-pointer transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-[#FF7582] hover:underline decoration-[#FF7582] underline-offset-4 cursor-pointer transition-colors" href="#">FAQ</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-[#FF7582] hover:border-[#FF7582] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span> <!-- Social Icon Placeholder -->
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-[#FF7582] hover:border-[#FF7582] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span> <!-- Instagram Placeholder -->
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-[#FF7582] hover:border-[#FF7582] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">social_leaderboard</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
