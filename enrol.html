@@ -171,31 +171,32 @@
   <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
   <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl -z-10"></div>
         
-<!-- Google Form Container -->
-<div class="relative rounded-xl overflow-hidden bg-white coral-glow border border-outline-variant/20 h-[900px] shadow-sm">
-    <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLScwOogiQ_Eq4pPsCOCl85k5BnVzjy-7NGCCGnQwoqYVN0vruA/viewform?embedded=true" 
-        width="100%" 
-        height="100%" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0"
-        class="w-full h-full border-none">
-        Loading…
-    </iframe>
+<!-- Form Canvas Section -->
+<section class="max-w-screen-xl mx-auto px-4 relative">
+    <!-- Decorative Elements -->
+    <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/10 rounded-full blur-3xl -z-10"></div>
+        
+    <!-- Google Form Container (Enlarged & Borderless) -->
+    <div class="relative w-full h-[1200px] overflow-hidden bg-transparent">
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLScwOogiQ_Eq4pPsCOCl85k5BnVzjy-7NGCCGnQwoqYVN0vruA/viewform?embedded=true" 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            class="w-full h-full border-none">
+            Loading…
+        </iframe>
 
-    <!-- Progress indicator -->
-    <div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-container">
-        <div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
+        <!-- Progress indicator (Aligned to the bottom of the larger form) -->
+        <div class="absolute bottom-0 left-0 w-full h-1.5 bg-slate-200/30">
+            <div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
+        </div>
     </div>
-</div>
-
-    <!-- Progress indicator -->
-    <div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-container">
-        <div class="h-full bg-gradient-to-r from-[#FF7582] to-secondary-container w-3/4"></div>
-    </div>
-</div>
 </section>
+        
 <!-- Informational Grid -->
 </main>
 <!-- Footer -->
