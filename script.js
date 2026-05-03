@@ -154,3 +154,28 @@ function scrollLanguages(distance) {
     });
   }
 }
+
+// OPEN EMAIL CLIENT
+function forceOpenEmail() {
+    // 1. Grab values
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const subject = document.getElementById('contact-subject').value || "Inquiry from " + name;
+    const message = document.getElementById('contact-message').value;
+
+    // 2. Build the body
+    const body = `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`;
+
+    // 3. Construct URL
+    const mailtoUrl = `mailto:hello@auralearning.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // 4. THE FORCE METHOD: Create an invisible <a> tag and "click" it
+    const link = document.createElement('a');
+    link.href = mailtoUrl;
+    link.target = '_blank'; // Opens in a new tab if it's a web-client
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    console.log("Force attempt complete.");
+}
