@@ -144,3 +144,13 @@ function setCurrency(curr) {
 }
 
 window.onload = loadCatalog;
+
+function scrollLanguages(distance) {
+  const slider = document.getElementById('languageSlider');
+  if (slider) {
+    slider.scrollBy({
+      left: distance,
+      behavior: 'smooth'
+    });
+  }
+}

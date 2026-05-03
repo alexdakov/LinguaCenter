@@ -139,8 +139,8 @@
                     <span class="text-xs">🇷🇺</span> RU
                 </span>
             </div>
-            <!-- Standardized Join Now Button -->
-            <button onclick="window.location.href='enrol.html'" class="bg-[#FF7582] text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 ease-in-out hover:shadow-lg transition-all">Join Now</button>
+            <!-- Standardized Enrol Now Button -->
+            <button onclick="window.location.href='enrol.html'" class="bg-[#FF7582] text-white px-6 py-2.5 rounded-full font-semibold active:scale-95 duration-200 ease-in-out hover:shadow-lg transition-all">Enrol Now</button>
         </div>
     </div>
 </header>
@@ -175,90 +175,129 @@
 <span class="material-symbols-outlined text-3xl" data-icon="schedule">schedule</span>
 </div>
 <h3 class="font-h3 text-h3 text-on-surface">Time</h3>
-<p class="font-body-md text-tertiary">Flexible schedule to fit your routine.</p>
+<p class="font-body-md text-tertiary">Flexible scheduling designed to fit your routine, including evening and weekend options. Learn at your own pace without disrupting your daily commitments.</p>
 </div>
 <div class="glass-card p-10 rounded-[2rem] space-y-4 hover:translate-y-[-8px] transition-transform duration-300">
 <div class="w-14 h-14 bg-secondary-fixed rounded-2xl flex items-center justify-center text-secondary">
 <span class="material-symbols-outlined text-3xl" data-icon="globe">globe</span>
 </div>
 <h3 class="font-h3 text-h3 text-on-surface">Location</h3>
-<p class="font-body-md text-tertiary">100% online - join from anywhere.</p>
+<p class="font-body-md text-tertiary">100% online — join from anywhere in the world. All you need is a stable internet connection and you’re ready to start learning.</p>
 </div>
 <div class="glass-card p-10 rounded-[2rem] space-y-4 hover:translate-y-[-8px] transition-transform duration-300">
 <div class="w-14 h-14 bg-tertiary-fixed rounded-2xl flex items-center justify-center text-tertiary">
 <span class="material-symbols-outlined text-3xl" data-icon="finance_mode">finance_mode</span>
 </div>
 <h3 class="font-h3 text-h3 text-on-surface">Efficiency</h3>
-<p class="font-body-md text-tertiary">Practical topics, real results.</p>
+<p class="font-body-md text-tertiary">Focused, practical lessons built around real-life situations. Achieve measurable progress through structured content and hands-on practice.</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- Our Languages Grid -->
+<!-- Our Languages Section -->
 <section class="py-section-padding max-w-7xl mx-auto px-8">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-<div>
-<h2 class="font-h2 text-h2 text-on-surface">Our Languages</h2>
-<p class="text-tertiary font-body-lg mt-2">Expert-led courses for global success.</p>
-</div>
-<a class="bg-white text-[#ff7582] px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-rose-50 transition-colors" href="languages.html">
-        See all languages <span class="material-symbols-outlined">arrow_forward</span>
-    </a>
-</div>
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div>
+            <h2 class="font-h2 text-h2 text-on-surface">Our Languages</h2>
+            <p class="text-tertiary font-body-lg mt-2">Turn language into real results — from daily conversations to career growth.</p>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <!-- Restore "See all languages" -->
+            <a class="bg-white text-[#ff7582] px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-rose-50 transition-colors shadow-sm" href="languages.html">
+                See all languages <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
 
-<!-- English -->
-<div class="group cursor-pointer">
-<div class="relative overflow-hidden rounded-[1.5rem] mb-4">
-<img alt="English Language" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/gb.png"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-6 left-6 text-white">
-<span class="text-sm font-medium tracking-widest uppercase opacity-80">English</span>
-<h4 class="text-2xl font-bold">English</h4>
-</div>
-</div>
-<a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
-</div>
+            <!-- Navigation Arrows -->
+            <div class="flex gap-2">
+                <button onclick="scrollLanguages(-300)" class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-rose-50 transition-colors bg-white shadow-sm" aria-label="Scroll left">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button onclick="scrollLanguages(300)" class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-rose-50 transition-colors bg-white shadow-sm" aria-label="Scroll right">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
-<!-- German -->
-<div class="group cursor-pointer">
-<div class="relative overflow-hidden rounded-[1.5rem] mb-4">
-<img alt="German Language" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/de.png"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-6 left-6 text-white">
-<span class="text-sm font-medium tracking-widest uppercase opacity-80">Deutsch</span>
-<h4 class="text-2xl font-bold">German</h4>
-</div>
-</div>
-<a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
-</div>
+    <!-- Scrollable Container -->
+<div id="languageSlider" class="flex overflow-x-auto gap-8 scroll-smooth no-scrollbar pb-6" style="scrollbar-width: none; -ms-overflow-style: none;">
+    
+    <!-- English -->
+    <div class="min-w-[280px] group cursor-pointer">
+        <a href="languages.html" class="block">
+            <div class="relative overflow-hidden rounded-[1.5rem] mb-4">
+                <img alt="English" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/gb.png"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 text-white">
+                    <span class="text-sm font-medium tracking-widest uppercase opacity-80">English</span>
+                    <h4 class="text-2xl font-bold">English</h4>
+                </div>
+            </div>
+        </a>
+        <a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
+    </div>
 
-<!-- Chinese -->
-<div class="group cursor-pointer">
-<div class="relative overflow-hidden rounded-[1.5rem] mb-4">
-<img alt="Chinese Language" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/cn.png"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-6 left-6 text-white">
-<span class="text-sm font-medium tracking-widest uppercase opacity-80">中文</span>
-<h4 class="text-2xl font-bold">Chinese</h4>
-</div>
-</div>
-<a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
-</div>
+    <!-- Bulgarian -->
+    <div class="min-w-[280px] group cursor-pointer">
+        <a href="languages.html" class="block">
+            <div class="relative overflow-hidden rounded-[1.5rem] mb-4">
+                <img alt="Bulgarian" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/bg.png"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 text-white">
+                    <span class="text-sm font-medium tracking-widest uppercase opacity-80">Български</span>
+                    <h4 class="text-2xl font-bold">Bulgarian</h4>
+                </div>
+            </div>
+        </a>
+        <a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
+    </div>
 
-<!-- Russian -->
-<div class="group cursor-pointer">
-<div class="relative overflow-hidden rounded-[1.5rem] mb-4">
-<!-- Russian -->
-<img alt="Russian Language" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/ru.png"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-6 left-6 text-white">
-<span class="text-sm font-medium tracking-widest uppercase opacity-80">Русский</span>
-<h4 class="text-2xl font-bold">Russian</h4>
-</div>
-</div>
-<a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
+    <!-- German -->
+    <div class="min-w-[280px] group cursor-pointer">
+        <a href="languages.html" class="block">
+            <div class="relative overflow-hidden rounded-[1.5rem] mb-4">
+                <img alt="German" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/de.png"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 text-white">
+                    <span class="text-sm font-medium tracking-widest uppercase opacity-80">Deutsch</span>
+                    <h4 class="text-2xl font-bold">German</h4>
+                </div>
+            </div>
+        </a>
+        <a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
+    </div>
+
+    <!-- Chinese -->
+    <div class="min-w-[280px] group cursor-pointer">
+        <a href="languages.html" class="block">
+            <div class="relative overflow-hidden rounded-[1.5rem] mb-4">
+                <img alt="Chinese" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/cn.png"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 text-white">
+                    <span class="text-sm font-medium tracking-widest uppercase opacity-80">中文</span>
+                    <h4 class="text-2xl font-bold">Chinese</h4>
+                </div>
+            </div>
+        </a>
+        <a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
+    </div>
+
+    <!-- Russian -->
+    <div class="min-w-[280px] group cursor-pointer">
+        <a href="languages.html" class="block">
+            <div class="relative overflow-hidden rounded-[1.5rem] mb-4">
+                <img alt="Russian" class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700" src="https://flagcdn.com/w640/ru.png"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 text-white">
+                    <span class="text-sm font-medium tracking-widest uppercase opacity-80">Русский</span>
+                    <h4 class="text-2xl font-bold">Russian</h4>
+                </div>
+            </div>
+        </a>
+        <a class="text-primary-container font-semibold inline-flex items-center gap-1 group-hover:underline" href="languages.html">Learn More</a>
+    </div>
 </div>
 
 </main>

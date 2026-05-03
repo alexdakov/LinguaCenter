@@ -2,9 +2,9 @@
   "languages": [
     {
       "id": "english",
-      "title": "English Language Courses",
+      "title": "English",
       "flag": "🇬🇧",
-      "desc": "Master global communication through immersive conversation and structured learning.",
+      "desc": "A language shaped by diversity—blending traditions, accents, and influences from across the globe, reflected in its literature, media, and everyday life.",
       "courses": [
         {"name": "English Foundations", "level": "A1 – A2", "dur": "60 min", "g_usd": "20", "i_usd": "40", "g_eur": "19", "i_eur": "37", "g_rub": "1800", "i_rub": "3650", "g_cny": "145", "i_cny": "290"},
         {"name": "Fluency & Logic", "level": "B1 – B2", "dur": "60 min", "g_usd": "25", "i_usd": "45", "g_eur": "23", "i_eur": "42", "g_rub": "2300", "i_rub": "4100", "g_cny": "180", "i_cny": "325"},
@@ -17,9 +17,9 @@
     },
     {
       "id": "german",
-      "title": "German Language Courses",
+      "title": "German",
       "flag": "🇩🇪",
-      "desc": "From grammar precision to business-level excellence.",
+      "desc": "Rooted in precision and depth, German reflects a culture known for philosophy, engineering, classical music, and a strong sense of structure.",
       "courses": [
         {"name": "German Foundations", "level": "A1 – A2", "dur": "60 min", "g_usd": "25", "i_usd": "45", "g_eur": "23", "i_eur": "42", "g_rub": "2300", "i_rub": "4100", "g_cny": "180", "i_cny": "325"},
         {"name": "Intermediate German", "level": "B1 – B2", "dur": "60 min", "g_usd": "30", "i_usd": "50", "g_eur": "28", "i_eur": "46", "g_rub": "2750", "i_rub": "4600", "g_cny": "215", "i_cny": "360"},
@@ -34,7 +34,7 @@
       "id": "mandarin",
       "title": "Mandarin Chinese",
       "flag": "🇨🇳",
-      "desc": "Unlock the gateway to Asia with expert-led tonal and character training.",
+      "desc": "A language carrying thousands of years of history—where tradition meets modern innovation, shaped by philosophy, symbolism, and a rich cultural heritage.",
       "courses": [
         {"name": "Mandarin Foundations", "level": "A1 – A2", "dur": "60 min", "g_usd": "30", "i_usd": "50", "g_eur": "28", "i_eur": "46", "g_rub": "2750", "i_rub": "4600", "g_cny": "215", "i_cny": "360"},
         {"name": "Intermediate Mandarin", "level": "B1 – B2", "dur": "60 min", "g_usd": "35", "i_usd": "55", "g_eur": "33", "i_eur": "51", "g_rub": "3200", "i_rub": "5000", "g_cny": "250", "i_cny": "395"},
@@ -47,9 +47,9 @@
     },
     {
       "id": "russian",
-      "title": "Russian Language",
+      "title": "Russian",
       "flag": "🇷🇺",
-      "desc": "Deep dives into literature, grammar, and native-level fluency.",
+      "desc": "Deep, expressive, and introspective—Russian mirrors a culture renowned for its literature, art, resilience, and strong emotional depth.",
       "courses": [
         {"name": "Russian Foundations", "level": "A1 – A2", "dur": "60 min", "g_usd": "22", "i_usd": "40", "g_eur": "20", "i_eur": "37", "g_rub": "2000", "i_rub": "3650", "g_cny": "160", "i_cny": "290"},
         {"name": "Intermediate Russian", "level": "B1 – B2", "dur": "60 min", "g_usd": "28", "i_usd": "45", "g_eur": "26", "i_eur": "42", "g_rub": "2550", "i_rub": "4100", "g_cny": "200", "i_cny": "325"},
@@ -62,9 +62,9 @@
     },
     {
       "id": "bulgarian",
-      "title": "Bulgarian Language",
+      "title": "Bulgarian",
       "flag": "🇧🇬",
-      "desc": "Authentic communication and cultural immersion.",
+      "desc": "Carved between mountains and sea—alive with folklore, fire-dancing rituals, and a spirit of warmth that runs deep through every word.",
       "courses": [
         {"name": "Bulgarian Foundations", "level": "A1 – A2", "dur": "60 min", "g_usd": "25", "i_usd": "45", "g_eur": "23", "i_eur": "42", "g_rub": "2300", "i_rub": "4100", "g_cny": "180", "i_cny": "325"},
         {"name": "Intermediate Mastery", "level": "B1 – B2", "dur": "60 min", "g_usd": "30", "i_usd": "50", "g_eur": "28", "i_eur": "46", "g_rub": "2750", "i_rub": "4600", "g_cny": "215", "i_cny": "360"},
