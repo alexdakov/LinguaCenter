@@ -267,6 +267,12 @@ function renderEnrolForm(lang = 'en') {
 
 // 3. SEND DATA
 async function sendToGoogle() {
+    const btn = document.querySelector('button[onclick="sendToGoogle()"]');
+    const container = document.getElementById('enrolment-form-container');
+    
+    // Your verified Google Web App URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1vUhfM7tF0UclAUTmBC8CQP-2zmwHfTGTmix-jrT6VDWN4v-lLZ3aoUUZFLQyLJLo3A/exec';
+
     const data = {
         name: document.getElementById('form-name').value,
         email: document.getElementById('form-email').value,
@@ -277,14 +283,38 @@ async function sendToGoogle() {
         comments: document.getElementById('form-goals').value
     };
 
-    const response = await fetch('https://linguabridge-email-form-handler.alextdakov.workers.dev', {
-        method: 'POST',
-        body: JSON.stringify(data)
-    });
+    if (!data.name || !data.email) {
+        alert("Please fill in the required fields.");
+        return;
+    }
 
-    if (response.ok) {
-        alert("Success! Data saved to Google Sheets.");
-        document.getElementById('active-form').reset();
+    if (btn) btn.innerText = "Sending...";
+
+    try {
+        // We use 'no-cors' mode for Google Apps Script to prevent browser blocks
+        await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', 
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        // SUCCESS UI: This replaces the form so you don't see the popup from image_0a07c1.png
+        container.innerHTML = `
+            <div class="text-center py-12 animate-[fadeIn_0.5s_ease-in-out]">
+                <div class="text-6xl mb-6">✨</div>
+                <h3 class="text-2xl font-bold text-primary mb-2">Application Submitted!</h3>
+                <p class="text-slate-500 mb-8">Your details have been added to our enrollment list.</p>
+                <button onclick="location.reload()" class="bg-primary/10 text-primary px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
+                    Fill another form
+                </button>
+            </div>
+        `;
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("Connection error. Please try again.");
+        if (btn) btn.innerText = "Sent request";
     }
 }
 
