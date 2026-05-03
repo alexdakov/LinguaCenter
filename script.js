@@ -155,16 +155,31 @@ function scrollLanguages(distance) {
   }
 }
 
-// EMAIL CLIENT
+// UPDATED EMAIL CLIENT (Source 1)
 async function sendEmailNow() {
     const btn = document.querySelector('button[onclick="sendEmailNow()"]');
-    if (btn) btn.innerText = "Sending...";
+    const originalText = btn ? btn.innerText : "Send Message";
+    
+    // 1. Basic validation to prevent sending empty emails
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+
+    if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    if (btn) {
+        btn.innerText = "Sending...";
+        btn.disabled = true; // Prevent double-clicking
+    }
     
     const formData = {
-        name: document.getElementById('contact-name').value,
-        email: document.getElementById('contact-email').value,
-        subject: document.getElementById('contact-subject').value,
-        message: document.getElementById('contact-message').value
+        name: name,
+        email: email,
+        subject: document.getElementById('contact-subject').value || "No Subject",
+        message: message
     };
 
     try {
@@ -176,13 +191,21 @@ async function sendEmailNow() {
 
         if (response.ok) {
             alert("Success! We received your message.");
+            // 2. Clear the form after success
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-subject').value = '';
+            document.getElementById('contact-message').value = '';
         } else {
             const err = await response.text();
-            alert("Worker Error: " + err);
+            alert("Error: " + err);
         }
     } catch (error) {
-        alert("Connection error. Please try again.");
+        alert("Connection error. Please check your internet and try again.");
     } finally {
-        if (btn) btn.innerText = "Send Message";
+        if (btn) {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
     }
 }
