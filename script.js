@@ -290,3 +290,47 @@ async function sendToGoogle() {
 
 // Show English form by default when page loads
 window.addEventListener('DOMContentLoaded', () => renderEnrolForm('en'));
+// 1. The main function called by your Nav Bar buttons
+function changeGlobalLanguage(lang) {
+    // Save the choice so it stays the same on other pages
+    localStorage.setItem('preferredLang', lang);
+    
+    // If we are on the enrolment page, update the form immediately
+    if (document.getElementById('enrolment-form-container')) {
+        renderEnrolForm(lang);
+    }
+    
+    // Update the visual look of the buttons
+    updateSwitcherUI(lang);
+}
+
+// 2. Visual feedback (highlighting the active language)
+function updateSwitcherUI(lang) {
+    const btns = ['en', 'bg', 'ru'];
+    btns.forEach(b => {
+        const el = document.querySelector(`.lang-btn-${b}`);
+        if (el) {
+            if (b === lang) {
+                el.classList.add('bg-primary-container', 'text-white');
+                el.classList.remove('opacity-70');
+            } else {
+                el.classList.remove('bg-primary-container', 'text-white');
+                el.classList.add('opacity-70');
+            }
+        }
+    });
+}
+
+// 3. Run this when any page loads
+window.addEventListener('DOMContentLoaded', () => {
+    // Check if the user has a saved language, otherwise default to 'en'
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    
+    // Update the UI look
+    updateSwitcherUI(savedLang);
+    
+    // If we are on the enrolment page, render the form in that language
+    if (document.getElementById('enrolment-form-container')) {
+        renderEnrolForm(savedLang);
+    }
+});
