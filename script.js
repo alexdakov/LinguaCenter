@@ -212,109 +212,201 @@ async function sendEmailNow() {
 // 1. DATA DICTIONARY
 const enrolTranslations = {
     en: {
-        title: "Student Application",
-        desc: "Fill out this form to request tutoring.",
-        placeholders: { name: "Full Name", email: "Email Address", phone: "Phone / WhatsApp / Telegram", native: "Native Language", schedule: "Preferred Schedule", goals: "Additional comments" },
-        questions: { lang: "Which language do you want to learn?", level: "Current level?", type: "Lesson type?", find: "How did you find us?" },
-        submit: "Sent request"
+        title: "Student Application – LinguaBridge",
+        desc: "Fill out this form to request tutoring. We’ll contact you shortly to match you with the right tutor.",
+        labels: { name: "Full Name", email: "Email Address", phone: "Phone number / WhatsApp / Viber / Telegram", native: "What is your native language?", schedule: "Preferred learning schedule", goals: "Additional comments or learning goals" },
+        questions: { lang: "Which language do you want to learn?", level: "What is your current level?", type: "What type of lessons are you interested in?", find: "How did you find us?", select: "-- Select from the list --", other: "Please specify:" },
+        options: {
+            langs: ["Bulgarian", "Chinese", "English", "German", "Russian", "Other"],
+            levels: ["Beginner", "Elementary (A2)", "Intermediate (B1–B2)", "Advanced (C1–C2)", "Not sure/None"],
+            types: ["One-on-one live lessons", "Group lessons", "Self-paced course", "Conversation practice", "Exam preparation (e.g., TORFL, IELTS)", "Other"],
+            find: ["Instagram", "Facebook", "Google Search", "Friend referral", "Other"]
+        },
+        submit: "Send request",
+        success: { title: "Thank you for your request!", msg: "Our team will reach out to you soon.", btn: "Fill another form" }
     },
     bg: {
-        title: "Кандидатстване за студенти",
-        desc: "Попълнете този формуляр, за да заявите уроци.",
-        placeholders: { name: "Вашите имена", email: "Имейл адрес", phone: "Телефон / WhatsApp / Viber", native: "Роден език", schedule: "Предпочитан график", goals: "Допълнителни коментари" },
-        questions: { lang: "Кой език искате да научите?", level: "Текущо ниво?", type: "Тип уроци?", find: "Как ни открихте?" },
-        submit: "Изпращане на заявка"
+        title: "Кандидатстване за студенти – LinguaBridge",
+        desc: "Попълнете този формуляр, за да заявите уроци. Ще се свържем с вас скоро, за да ви свържем с подходящия преподавател.",
+        labels: { name: "Вашите имена", email: "Имейл адрес", phone: "Телефонен номер / WhatsApp / Viber / Telegram", native: "Какъв е твоят роден език?", schedule: "Предпочитан график за обучение", goals: "Допълнителни коментари или учебни цели" },
+        questions: { lang: "Кой език искате да научите?", level: "Какво е текущото ви ниво?", type: "От какъв тип уроци се интересувате?", find: "Как ни открихте?", select: "-- Изберете от списъка --", other: "Моля, уточнете:" },
+        options: {
+            langs: ["Български език", "Китайски език", "Английски език", "Немски език", "Руски език", "Друго"],
+            levels: ["Начинаещ", "Начално ниво (A2)", "Средно ниво (B1–B2)", "Напреднал ниво (C1–C2)", "Не съм сигурен/сигурна"],
+            types: ["Индивидуални уроци на живо", "Групови уроци", "Курс със самостоятелно темпо", "Практика за разговори", "Подготовка за изпити (напр. TORFL, IELTS)", "Друго"],
+            find: ["Instagram", "Facebook", "Търсене в Google", "Препоръка от приятел", "Друго"]
+        },
+        submit: "Изпращане на заявка",
+        success: { title: "Благодарим за вашата заявка!", msg: "Нашият екип ще се свърже с вас скоро.", btn: "Попълнете отново" }
     },
     ru: {
-        title: "Заявка студента",
-        desc: "Заполните эту форму, чтобы запросить репетиторство.",
-        placeholders: { name: "Ваше имя", email: "Email", phone: "Телефон / WhatsApp / Telegram", native: "Родной язык", schedule: "График обучения", goals: "Комментарии" },
-        questions: { lang: "Какой язык вы хотите выучить?", level: "Ваш уровень?", type: "Вид занятий?", find: "Как вы нас нашли?" },
-        submit: "Отправить заявку"
+        title: "Заявка студента – LinguaBridge",
+        desc: "Заполните эту форму, чтобы запросить репетиторство. Мы свяжемся с вами в ближайшее время, чтобы подобрать для вас подходящего репетитора.",
+        labels: { name: "Ваше имя", email: "Адрес электронной почты", phone: "Номер телефона / WhatsApp / Viber / Telegram", native: "Какой ваш родной язык?", schedule: "Предпочтительный график обучения", goals: "Дополнительные комментарии или учебные цели" },
+        questions: { lang: "Какой язык вы хотите выучить?", level: "Какой у вас сейчас уровень?", type: "Какие виды занятий вас интересуют?", find: "Как вы нас нашли?", select: "-- Выберите из списка --", other: "Пожалуйста, уточните:" },
+        options: {
+            langs: ["Болгарский язык", "Китайский язык", "Английский язык", "Немецкий язык", "Русский язык", "Другое"],
+            levels: ["Начинающий (А1)", "Элементарный (A2)", "Средний (B1–B2)", "Продвинутый (C1–C2)", "Не уверен/нулевой"],
+            types: ["Индивидуальные занятия в режиме реального времени", "Групповые занятия", "Курс в удобном для вас темпе", "Разговорная практика", "Подготовка к экзаменам (например, TORFL, IELTS)", "Другое"],
+            find: ["Instagram", "Facebook", "Поиск в Google", "Рекомендация от друзей", "Другое"]
+        },
+        submit: "Отправить заявку",
+        success: { title: "Спасибо за вашу заявку!", msg: "Наша команда скоро свяжется с вами.", btn: "Заполнить еще раз" }
     }
+const tutorTranslations = {
+    en: {
+        title: "Tutor Application – LinguaBridge",
+        desc: "Apply to become a language tutor. Fill in the form below and we’ll contact you shortly.",
+        labels: {
+            name: "Full Name*", email: "Email Address*", phone: "Phone / WhatsApp / Telegram*",
+            langs: "Which language(s) do you teach?*", edu: "Education and qualifications*",
+            certs: "Do you hold any certificates? (e.g. CELTA)*", exp: "Teaching experience*",
+            hours: "Preferred working hours / time zones*", bio: "Short intro about yourself*",
+            cv: "Upload your CV or resume (PDF only)*"
+        },
+        submit: "Send Application",
+        success: "Thank you! Your tutor application has been received."
+    }
+};
 };
 
 // 2. RENDER THE FORM
 function renderEnrolForm(lang = 'en') {
     const container = document.getElementById('enrolment-form-container');
+    if (!container) return;
     const t = enrolTranslations[lang];
 
     container.innerHTML = `
-        <h2 class="text-3xl font-bold text-primary mb-2">${t.title}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-2">${t.title}</h2>
         <p class="text-slate-500 mb-8">${t.desc}</p>
         <form id="active-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" id="form-name" placeholder="${t.placeholders.name}*" required class="p-4 rounded-xl border-rose-100">
-            <input type="email" id="form-email" placeholder="${t.placeholders.email}*" required class="p-4 rounded-xl border-rose-100">
-            <input type="text" id="form-phone" placeholder="${t.placeholders.phone}*" class="p-4 rounded-xl border-rose-100 col-span-full">
+            <!-- Text Inputs with labels above -->
+            <div class="flex flex-col"><label class="font-bold text-sm text-slate-600 mb-1">${t.labels.name}*</label><input type="text" id="form-name" required class="p-4 rounded-xl border border-rose-100 outline-none"></div>
+            <div class="flex flex-col"><label class="font-bold text-sm text-slate-600 mb-1">${t.labels.email}*</label><input type="email" id="form-email" required class="p-4 rounded-xl border border-rose-100 outline-none"></div>
+            <div class="flex flex-col col-span-full"><label class="font-bold text-sm text-slate-600 mb-1">${t.labels.phone}*</label><input type="text" id="form-phone" required class="p-4 rounded-xl border border-rose-100 outline-none"></div>
             
-            <div class="col-span-full">
-                <label class="block font-bold mb-2 text-sm text-slate-600">${t.questions.lang}</label>
-                <select id="form-target" class="w-full p-4 rounded-xl border-rose-100">
-                    <option>English</option><option>Bulgarian</option><option>German</option><option>Russian</option><option>Chinese</option>
+            <!-- Dropdowns with default selection -->
+            <div class="flex flex-col">
+                <label class="font-bold text-sm text-slate-600 mb-1">${t.questions.lang}*</label>
+                <select id="form-target" required onchange="handleOther(this, 'other-lang')" class="p-4 rounded-xl border border-rose-100 bg-white">
+                    <option value="" disabled selected>${t.questions.select}</option>
+                    ${t.options.langs.map(l => `<option value="${l}">${l}</option>`).join('')}
+                </select>
+                <input type="text" id="other-lang" placeholder="${t.questions.other}" class="hidden mt-2 p-4 rounded-xl border border-rose-100 outline-none">
+            </div>
+
+            <div class="flex flex-col">
+                <label class="font-bold text-sm text-slate-600 mb-1">${t.questions.level}*</label>
+                <select id="form-level" required class="p-4 rounded-xl border border-rose-100 bg-white">
+                    <option value="" disabled selected>${t.questions.select}</option>
+                    ${t.options.levels.map(l => `<option value="${l}">${l}</option>`).join('')}
                 </select>
             </div>
 
-            <input type="text" id="form-native" placeholder="${t.placeholders.native}*" class="p-4 rounded-xl border-rose-100">
-            <input type="text" id="form-schedule" placeholder="${t.placeholders.schedule}*" class="p-4 rounded-xl border-rose-100">
-            <textarea id="form-goals" placeholder="${t.placeholders.goals}" class="p-4 rounded-xl border-rose-100 col-span-full"></textarea>
+            <div class="flex flex-col"><label class="font-bold text-sm text-slate-600 mb-1">${t.labels.native}*</label><input type="text" id="form-native" required class="p-4 rounded-xl border border-rose-100 outline-none"></div>
+            <div class="flex flex-col"><label class="font-bold text-sm text-slate-600 mb-1">${t.labels.schedule}*</label><input type="text" id="form-schedule" required class="p-4 rounded-xl border border-rose-100 outline-none"></div>
 
-            <button type="button" onclick="sendToGoogle()" class="col-span-full bg-primary text-white p-5 rounded-full font-bold shadow-lg">
+            <div class="flex flex-col col-span-full">
+                <label class="font-bold text-sm text-slate-600 mb-1">${t.questions.type}*</label>
+                <select id="form-type" required onchange="handleOther(this, 'other-type')" class="p-4 rounded-xl border border-rose-100 bg-white">
+                    <option value="" disabled selected>${t.questions.select}</option>
+                    ${t.options.types.map(l => `<option value="${l}">${l}</option>`).join('')}
+                </select>
+                <input type="text" id="other-type" placeholder="${t.questions.other}" class="hidden mt-2 p-4 rounded-xl border border-rose-100 outline-none">
+            </div>
+
+            <div class="flex flex-col col-span-full">
+                <label class="font-bold text-sm text-slate-600 mb-1">${t.questions.find}*</label>
+                <select id="form-find" required onchange="handleOther(this, 'other-find')" class="p-4 rounded-xl border border-rose-100 bg-white">
+                    <option value="" disabled selected>${t.questions.select}</option>
+                    ${t.options.find.map(l => `<option value="${l}">${l}</option>`).join('')}
+                </select>
+                <input type="text" id="other-find" placeholder="${t.questions.other}" class="hidden mt-2 p-4 rounded-xl border border-rose-100 outline-none">
+            </div>
+
+            <div class="flex flex-col col-span-full"><label class="font-bold text-sm text-slate-600 mb-1">${t.labels.goals}</label><textarea id="form-goals" class="p-4 rounded-xl border border-rose-100 h-32 outline-none"></textarea></div>
+
+            <button type="submit" class="col-span-full bg-primary text-white p-5 rounded-full font-bold shadow-lg hover:brightness-110 active:scale-95 transition-all">
                 ${t.submit}
             </button>
         </form>
     `;
+
+    // Handle form submission properly with validation
+    document.getElementById('active-form').onsubmit = (e) => {
+        e.preventDefault();
+        sendToGoogle();
+    };
+}
+
+// Function to show/hide "Other" text bar
+function handleOther(selectEl, otherId) {
+    const otherInput = document.getElementById(otherId);
+    if (selectEl.value.includes('Other') || selectEl.value.includes('Друго') || selectEl.value.includes('Другое')) {
+        otherInput.classList.remove('hidden');
+        otherInput.required = true;
+    } else {
+        otherInput.classList.add('hidden');
+        otherInput.required = false;
+    }
 }
 
 // 3. SEND DATA
 async function sendToGoogle() {
-    const btn = document.querySelector('button[onclick="sendToGoogle()"]');
+    const btn = document.querySelector('button[type="submit"]');
     const container = document.getElementById('enrolment-form-container');
+    const lang = localStorage.getItem('preferredLang') || 'en';
+    const t = enrolTranslations[lang];
     
-    // Your verified Google Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1vUhfM7tF0UclAUTmBC8CQP-2zmwHfTGTmix-jrT6VDWN4v-lLZ3aoUUZFLQyLJLo3A/exec';
+    const FINAL_URL = 'https://script.google.com/macros/s/AKfycby-dDAkXx81ifH7ewpDxUKMJwkZKh_D4q47gDDdPwxDIuORbYQ75P28LcQS7u3LAP7cew/exec';
+
+    const getVal = (id, otherId) => {
+        const sel = document.getElementById(id);
+        if (!sel) return "";
+        const val = sel.value;
+        const otherInput = document.getElementById(otherId);
+        // Returns the 'Other' text box value if 'Other' is selected in the dropdown
+        if (val.includes('Other') || val.includes('Друго')) {
+            return otherInput ? otherInput.value : val;
+        }
+        return val;
+    };
 
     const data = {
         name: document.getElementById('form-name').value,
         email: document.getElementById('form-email').value,
         phone: document.getElementById('form-phone').value,
-        target_lang: document.getElementById('form-target').value,
+        target_lang: getVal('form-target', 'other-lang'),
+        level: document.getElementById('form-level').value,
         native_lang: document.getElementById('form-native').value,
         schedule: document.getElementById('form-schedule').value,
+        lesson_type: getVal('form-type', 'other-type'),
+        found_via: getVal('form-find', 'other-find'), // This matches the Google Script data.found_via
         comments: document.getElementById('form-goals').value
     };
 
-    if (!data.name || !data.email) {
-        alert("Please fill in the required fields.");
-        return;
-    }
-
-    if (btn) btn.innerText = "Sending...";
+    if (btn) btn.innerText = "...";
 
     try {
-        // We use 'no-cors' mode for Google Apps Script to prevent browser blocks
-        await fetch(GOOGLE_SCRIPT_URL, {
+        await fetch(FINAL_URL, {
             method: 'POST',
-            mode: 'no-cors', 
-            cache: 'no-cache',
-            headers: { 'Content-Type': 'application/json' },
+            mode: 'no-cors',
             body: JSON.stringify(data)
         });
 
-        // SUCCESS UI: This replaces the form so you don't see the popup from image_0a07c1.png
         container.innerHTML = `
-            <div class="text-center py-12 animate-[fadeIn_0.5s_ease-in-out]">
+            <div class="text-center py-12">
                 <div class="text-6xl mb-6">✨</div>
-                <h3 class="text-2xl font-bold text-primary mb-2">Application Submitted!</h3>
-                <p class="text-slate-500 mb-8">Your details have been added to our enrollment list.</p>
-                <button onclick="location.reload()" class="bg-primary/10 text-primary px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
-                    Fill another form
+                <h3 class="text-2xl font-bold text-primary mb-2">${t.success.title}</h3>
+                <p class="text-slate-500 mb-8">${t.success.msg}</p>
+                <button onclick="location.reload()" class="bg-primary/10 text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
+                    ${t.success.btn}
                 </button>
             </div>
         `;
-    } catch (error) {
-        console.error("Submission error:", error);
-        alert("Connection error. Please try again.");
-        if (btn) btn.innerText = "Sent request";
+    } catch (e) {
+        console.error("Submission error:", e);
+        alert("Error!");
     }
 }
 
