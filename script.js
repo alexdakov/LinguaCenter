@@ -320,14 +320,14 @@ function updateSwitcherUI(lang) {
     });
 }
 
-// 3. Run this when any page loads => {
-    // Check if the user has a saved language, otherwise default to 'en'
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Check if the user has a saved language, otherwise default to 'en'
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     
-    // Update the UI look
+    // 2. Update the UI look (highlights the flag)
     updateSwitcherUI(savedLang);
     
-    // If we are on the enrolment page, render the form in that language
+    // 3. If we are on the enrolment page, render the form in that language
     if (document.getElementById('enrolment-form-container')) {
         renderEnrolForm(savedLang);
     }
