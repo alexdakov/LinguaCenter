@@ -156,15 +156,22 @@ function scrollLanguages(distance) {
 }
 
 // EMAIL CLIENT
+// EMAIL CLIENT
 async function sendEmailNow() {
     const btn = document.querySelector('button');
     btn.innerText = "Sending...";
     
+    // Get form values
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const subject = document.getElementById('contact-subject').value;
+    const message = document.getElementById('contact-message').value;
+
     const formData = {
-        name: document.getElementById('contact-name').value,
-        email: document.getElementById('contact-email').value,
-        subject: document.getElementById('contact-subject').value,
-        message: document.getElementById('contact-message').value
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
     };
 
     try {
@@ -178,14 +185,19 @@ async function sendEmailNow() {
 
         if (response.ok) {
             alert("Success! We received your message.");
-            btn.innerText = "Send Message";
+            // Optional: clear form
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-subject').value = '';
+            document.getElementById('contact-message').value = '';
         } else {
             const errorText = await response.text();
-            alert("Error: " + errorText);
-            btn.innerText = "Send Message";
+            alert("Worker Error: " + errorText);
         }
     } catch (error) {
+        console.error("Submission error:", error);
         alert("Something went wrong. Please try again.");
+    } finally {
         btn.innerText = "Send Message";
     }
-} // <--- Check if this closing bracket is here!
+}
