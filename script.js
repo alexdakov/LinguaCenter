@@ -266,7 +266,7 @@ const tutorTranslations = {
 function renderTutorForm(lang = 'en') {
     const container = document.getElementById('tutor-form-container');
     if (!container) return;
-    const t = tutorTranslations[lang];
+    const t = tutorTranslations[lang] || tutorTranslations['en'];
     container.innerHTML = `
         <h2 class="text-3xl font-bold text-slate-900 mb-2">${t.title}</h2>
         <p class="text-slate-500 mb-10">${t.desc}</p>
@@ -291,7 +291,7 @@ function renderTutorForm(lang = 'en') {
 async function handleTutorSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    const FINAL_URL = 'https://script.google.com/macros/s/AKfycbzYVsYrqeSmQtdQ9GZWbK8ESWHUWvAt4MPpNmrn8zN97jdHR6VxLCKnQmJmRcUmG9Qxbg/exec';
+    const TUTOR_URL = 'https://script.google.com/macros/s/AKfycbyu9YGIfEWP3BtmebcXRoj7JbWb6UAMgHJkincpdxOXsXis6JmsBi6MMD_gK39xt6rFQg/exec';
     
     btn.innerText = "Uploading... Please wait";
     btn.disabled = true;
@@ -316,7 +316,19 @@ async function handleTutorSubmit(e) {
         };
         
         try {
-            await fetch(FINAL_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+const res = await fetch(TUTOR_URL, { 
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+});
+
+if (!res.ok) {
+    throw new Error("Server error while submitting tutor form");
+}
+
+if (!res.ok) {
+    throw new Error("Server error while submitting student form");
+}
             document.getElementById('tutor-form-container').innerHTML = `
                 <div class="text-center py-20">
                     <h2 class="text-2xl font-bold text-primary">Application is submitted!</h2>
@@ -411,14 +423,14 @@ function handleOther(selectEl, otherId) {
     }
 }
 
-// 3. SEND DATA
+// 3. STUDENT FORM SUBMISSION
 async function sendToGoogle() {
     const btn = document.querySelector('button[type="submit"]');
     const container = document.getElementById('enrolment-form-container');
     const lang = localStorage.getItem('preferredLang') || 'en';
     const t = enrolTranslations[lang];
     
-    const FINAL_URL = 'https://script.google.com/macros/s/AKfycbzYVsYrqeSmQtdQ9GZWbK8ESWHUWvAt4MPpNmrn8zN97jdHR6VxLCKnQmJmRcUmG9Qxbg/exec';
+    const STUDENT_URL = 'https://script.google.com/macros/s/AKfycbwsjXsbz7HtmD7DYP8WnzkmZ1HcblutLAV-RbA-fSyz9pAszW0FnhiBA9aA95RADWop_w/exec';
 
     const getVal = (id, otherId) => {
         const sel = document.getElementById(id);
@@ -448,9 +460,8 @@ async function sendToGoogle() {
     if (btn) btn.innerText = "Submitting... Please wait";
 
     try {
-        await fetch(FINAL_URL, {
+        await fetch(STUDENT_URL, {
             method: 'POST',
-            mode: 'no-cors',
             body: JSON.stringify(data)
         });
 
@@ -465,8 +476,8 @@ async function sendToGoogle() {
             </div>
         `;
     } catch (e) {
-        console.error("Submission error:", e);
-        alert("Error!");
+    console.error("Submission error:", e);
+    alert("Something went wrong. Please try again.");
     }
 }
 
@@ -512,13 +523,15 @@ window.addEventListener('DOMContentLoaded', () => {
         loadCatalog();
     }
 
-    // 3. Initialize Student Form (if on enrol.html)
+    // 3. Initialize Student Form (if on enrol_5.html)
     if (document.getElementById('enrolment-form-container')) {
         renderEnrolForm(savedLang);
     }
 
-    // 4. Initialize Tutor Form (if on tutor_signup.html)
-    if (document.getElementById('tutor-form-container')) {
+    // 4. Initialize Tutor Form (Explicitly check tutor_signup_5.html)
+    const tutorContainer = document.getElementById('tutor-form-container');
+    if (tutorContainer) {
+        console.log("Tutor container found, rendering form..."); // Helps you debug in F12
         renderTutorForm(savedLang);
     }
     
