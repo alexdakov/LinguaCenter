@@ -143,8 +143,6 @@ function setCurrency(curr) {
     renderCatalog();
 }
 
-window.onload = loadCatalog;
-
 function scrollLanguages(distance) {
   const slider = document.getElementById('languageSlider');
   if (slider) {
@@ -253,22 +251,84 @@ const enrolTranslations = {
         submit: "Отправить заявку",
         success: { title: "Спасибо за вашу заявку!", msg: "Наша команда скоро свяжется с вами.", btn: "Заполнить еще раз" }
     }
+};
+// --- TUTOR FORM LOGIC ---
 const tutorTranslations = {
     en: {
         title: "Tutor Application – LinguaBridge",
         desc: "Apply to become a language tutor. Fill in the form below and we’ll contact you shortly.",
-        labels: {
-            name: "Full Name*", email: "Email Address*", phone: "Phone / WhatsApp / Telegram*",
-            langs: "Which language(s) do you teach?*", edu: "Education and qualifications*",
-            certs: "Do you hold any certificates? (e.g. CELTA)*", exp: "Teaching experience*",
-            hours: "Preferred working hours / time zones*", bio: "Short intro about yourself*",
-            cv: "Upload your CV or resume (PDF only)*"
-        },
+        labels: { name: "Full Name*", email: "Email Address*", phone: "Phone / WhatsApp / Telegram*", langs: "Which language(s) do you teach?*", edu: "Education and qualifications*", certs: "Do you hold any certificates? (e.g. CELTA)*", exp: "Teaching experience*", hours: "Preferred working hours*", bio: "Short intro about yourself*", cv: "Upload your CV (PDF only)*" },
         submit: "Send Application",
-        success: "Thank you! Your tutor application has been received."
+        success: "Thank you! Your application has been received."
     }
 };
-};
+
+function renderTutorForm(lang = 'en') {
+    const container = document.getElementById('tutor-form-container');
+    if (!container) return;
+    const t = tutorTranslations[lang];
+    container.innerHTML = `
+        <h2 class="text-3xl font-bold text-slate-900 mb-2">${t.title}</h2>
+        <p class="text-slate-500 mb-10">${t.desc}</p>
+        <form id="tutor-form" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="flex flex-col"><label class="font-bold text-sm mb-1">${t.labels.name}</label><input type="text" id="t-name" required class="p-4 rounded-xl border border-rose-100"></div>
+                <div class="flex flex-col"><label class="font-bold text-sm mb-1">${t.labels.email}</label><input type="email" id="t-email" required class="p-4 rounded-xl border border-rose-100"></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.phone}</label><input type="text" id="t-phone" required class="p-4 rounded-xl border border-rose-100"></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.langs}</label><input type="text" id="t-langs" required class="p-4 rounded-xl border border-rose-100"></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.edu}</label><textarea id="t-edu" required class="p-4 rounded-xl border border-rose-100 h-24"></textarea></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.certs}</label><input type="text" id="t-certs" required class="p-4 rounded-xl border border-rose-100"></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.exp}</label><textarea id="t-exp" required class="p-4 rounded-xl border border-rose-100 h-24"></textarea></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.hours}</label><input type="text" id="t-hours" required class="p-4 rounded-xl border border-rose-100"></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.bio}</label><textarea id="t-bio" required class="p-4 rounded-xl border border-rose-100 h-24"></textarea></div>
+                <div class="flex flex-col col-span-full"><label class="font-bold text-sm mb-1">${t.labels.cv}</label><input type="file" id="t-cv" accept=".pdf" required class="p-4 rounded-xl border border-rose-100"></div>
+            </div>
+            <button type="submit" class="w-full bg-[#FF7582] text-white p-5 rounded-full font-bold shadow-lg">${t.submit}</button>
+        </form>`;
+    document.getElementById('tutor-form').onsubmit = handleTutorSubmit;
+}
+//TUTOR FORM SUBMISSION HANDLER
+async function handleTutorSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const FINAL_URL = 'https://script.google.com/macros/s/AKfycbzYVsYrqeSmQtdQ9GZWbK8ESWHUWvAt4MPpNmrn8zN97jdHR6VxLCKnQmJmRcUmG9Qxbg/exec';
+    
+    btn.innerText = "Uploading... Please wait";
+    btn.disabled = true;
+    
+    const file = document.getElementById('t-cv').files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = async () => {
+        const data = {
+            isTutor: true,
+            name: document.getElementById('t-name').value,
+            email: document.getElementById('t-email').value,
+            phone: document.getElementById('t-phone').value,
+            langs: document.getElementById('t-langs').value,
+            edu: document.getElementById('t-edu').value,
+            certs: document.getElementById('t-certs').value,
+            exp: document.getElementById('t-exp').value,
+            hours: document.getElementById('t-hours').value,
+            bio: document.getElementById('t-bio').value,
+            cvFile: reader.result.split(',')[1],
+            cvName: document.getElementById('t-name').value + "_CV.pdf"
+        };
+        
+        try {
+            await fetch(FINAL_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+            document.getElementById('tutor-form-container').innerHTML = `
+                <div class="text-center py-20">
+                    <h2 class="text-2xl font-bold text-primary">Application is submitted!</h2>
+                    <p>We will review your application and will reach out to you soon.</p>
+                </div>`;
+        } catch (err) {
+            alert("Submission failed. Please try again.");
+            btn.innerText = "Send Application";
+            btn.disabled = false;
+        }
+    };
+}
 
 // 2. RENDER THE FORM
 function renderEnrolForm(lang = 'en') {
@@ -358,7 +418,7 @@ async function sendToGoogle() {
     const lang = localStorage.getItem('preferredLang') || 'en';
     const t = enrolTranslations[lang];
     
-    const FINAL_URL = 'https://script.google.com/macros/s/AKfycby-dDAkXx81ifH7ewpDxUKMJwkZKh_D4q47gDDdPwxDIuORbYQ75P28LcQS7u3LAP7cew/exec';
+    const FINAL_URL = 'https://script.google.com/macros/s/AKfycbzYVsYrqeSmQtdQ9GZWbK8ESWHUWvAt4MPpNmrn8zN97jdHR6VxLCKnQmJmRcUmG9Qxbg/exec';
 
     const getVal = (id, otherId) => {
         const sel = document.getElementById(id);
@@ -385,7 +445,7 @@ async function sendToGoogle() {
         comments: document.getElementById('form-goals').value
     };
 
-    if (btn) btn.innerText = "...";
+    if (btn) btn.innerText = "Submitting... Please wait";
 
     try {
         await fetch(FINAL_URL, {
@@ -444,16 +504,24 @@ function updateSwitcherUI(lang) {
 
 // This listener runs every time a page loads
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. Get the language (saved from the switcher or default to 'en')
+    // 1. Determine active language
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     
-    // 2. Highlight the correct flag in the nav bar
-    updateSwitcherUI(savedLang);
-    
-    // 3. Check if we are on the enrolment page
-    const formContainer = document.getElementById('enrolment-form-container');
-    if (formContainer) {
-        console.log("Building form in:", savedLang); // Check your browser console for this!
+    // 2. Initialize Catalog (if on main page)
+    if (typeof loadCatalog === "function" && document.getElementById('catalog-container')) {
+        loadCatalog();
+    }
+
+    // 3. Initialize Student Form (if on enrol.html)
+    if (document.getElementById('enrolment-form-container')) {
         renderEnrolForm(savedLang);
     }
+
+    // 4. Initialize Tutor Form (if on tutor_signup.html)
+    if (document.getElementById('tutor-form-container')) {
+        renderTutorForm(savedLang);
+    }
+    
+    // 5. Update UI flags
+    updateSwitcherUI(savedLang);
 });
