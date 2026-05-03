@@ -289,7 +289,6 @@ async function sendToGoogle() {
 }
 
 // Show English form by default when page loads
-window.addEventListener('DOMContentLoaded', () => renderEnrolForm('en'));
 // 1. The main function called by your Nav Bar buttons
 function changeGlobalLanguage(lang) {
     // Save the choice so it stays the same on other pages
@@ -321,8 +320,7 @@ function updateSwitcherUI(lang) {
     });
 }
 
-// 3. Run this when any page loads
-window.addEventListener('DOMContentLoaded', () => {
+// 3. Run this when any page loads => {
     // Check if the user has a saved language, otherwise default to 'en'
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     
