@@ -209,3 +209,84 @@ async function sendEmailNow() {
         }
     }
 }
+// 1. DATA DICTIONARY
+const enrolTranslations = {
+    en: {
+        title: "Student Application",
+        desc: "Fill out this form to request tutoring.",
+        placeholders: { name: "Full Name", email: "Email Address", phone: "Phone / WhatsApp / Telegram", native: "Native Language", schedule: "Preferred Schedule", goals: "Additional comments" },
+        questions: { lang: "Which language do you want to learn?", level: "Current level?", type: "Lesson type?", find: "How did you find us?" },
+        submit: "Sent request"
+    },
+    bg: {
+        title: "Кандидатстване за студенти",
+        desc: "Попълнете този формуляр, за да заявите уроци.",
+        placeholders: { name: "Вашите имена", email: "Имейл адрес", phone: "Телефон / WhatsApp / Viber", native: "Роден език", schedule: "Предпочитан график", goals: "Допълнителни коментари" },
+        questions: { lang: "Кой език искате да научите?", level: "Текущо ниво?", type: "Тип уроци?", find: "Как ни открихте?" },
+        submit: "Изпращане на заявка"
+    },
+    ru: {
+        title: "Заявка студента",
+        desc: "Заполните эту форму, чтобы запросить репетиторство.",
+        placeholders: { name: "Ваше имя", email: "Email", phone: "Телефон / WhatsApp / Telegram", native: "Родной язык", schedule: "График обучения", goals: "Комментарии" },
+        questions: { lang: "Какой язык вы хотите выучить?", level: "Ваш уровень?", type: "Вид занятий?", find: "Как вы нас нашли?" },
+        submit: "Отправить заявку"
+    }
+};
+
+// 2. RENDER THE FORM
+function renderEnrolForm(lang = 'en') {
+    const container = document.getElementById('enrolment-form-container');
+    const t = enrolTranslations[lang];
+
+    container.innerHTML = `
+        <h2 class="text-3xl font-bold text-primary mb-2">${t.title}</h2>
+        <p class="text-slate-500 mb-8">${t.desc}</p>
+        <form id="active-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input type="text" id="form-name" placeholder="${t.placeholders.name}*" required class="p-4 rounded-xl border-rose-100">
+            <input type="email" id="form-email" placeholder="${t.placeholders.email}*" required class="p-4 rounded-xl border-rose-100">
+            <input type="text" id="form-phone" placeholder="${t.placeholders.phone}*" class="p-4 rounded-xl border-rose-100 col-span-full">
+            
+            <div class="col-span-full">
+                <label class="block font-bold mb-2 text-sm text-slate-600">${t.questions.lang}</label>
+                <select id="form-target" class="w-full p-4 rounded-xl border-rose-100">
+                    <option>English</option><option>Bulgarian</option><option>German</option><option>Russian</option><option>Chinese</option>
+                </select>
+            </div>
+
+            <input type="text" id="form-native" placeholder="${t.placeholders.native}*" class="p-4 rounded-xl border-rose-100">
+            <input type="text" id="form-schedule" placeholder="${t.placeholders.schedule}*" class="p-4 rounded-xl border-rose-100">
+            <textarea id="form-goals" placeholder="${t.placeholders.goals}" class="p-4 rounded-xl border-rose-100 col-span-full"></textarea>
+
+            <button type="button" onclick="sendToGoogle()" class="col-span-full bg-primary text-white p-5 rounded-full font-bold shadow-lg">
+                ${t.submit}
+            </button>
+        </form>
+    `;
+}
+
+// 3. SEND DATA
+async function sendToGoogle() {
+    const data = {
+        name: document.getElementById('form-name').value,
+        email: document.getElementById('form-email').value,
+        phone: document.getElementById('form-phone').value,
+        target_lang: document.getElementById('form-target').value,
+        native_lang: document.getElementById('form-native').value,
+        schedule: document.getElementById('form-schedule').value,
+        comments: document.getElementById('form-goals').value
+    };
+
+    const response = await fetch('https://linguabridge-email-form-handler.alextdakov.workers.dev', {
+        method: 'POST',
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        alert("Success! Data saved to Google Sheets.");
+        document.getElementById('active-form').reset();
+    }
+}
+
+// Show English form by default when page loads
+window.addEventListener('DOMContentLoaded', () => renderEnrolForm('en'));
