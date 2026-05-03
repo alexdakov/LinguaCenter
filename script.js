@@ -168,7 +168,7 @@ async function sendEmailNow() {
     };
 
     try {
-        const response = await fetch('https://linguabridge-email-form-handler.alextdakov.workers.dev/', {
+        const response = await fetch('https://linguabridge-email-form-handler.alextdakov.workers.dev', {
             method: 'POST',
             body: JSON.stringify(formData)
         });
