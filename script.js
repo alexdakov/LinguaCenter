@@ -190,7 +190,7 @@ async function sendEmailNow() {
         });
 
         if (response.ok) {
-            alert("Success! We received your message.");
+            document.getElementById('contact-form').innerHTML = '<h3>Thank you! We will be in touch soon.</h3>';
             // 2. Clear the form after success
             document.getElementById('contact-name').value = '';
             document.getElementById('contact-email').value = '';
