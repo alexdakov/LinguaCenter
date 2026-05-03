@@ -287,59 +287,79 @@ function renderTutorForm(lang = 'en') {
         </form>`;
     document.getElementById('tutor-form').onsubmit = handleTutorSubmit;
 }
-//TUTOR FORM SUBMISSION HANDLER
+// TUTOR FORM SUBMISSION HANDLER
 async function handleTutorSubmit(e) {
     e.preventDefault();
+
     const btn = e.target.querySelector('button');
     const TUTOR_URL = 'https://script.google.com/macros/s/AKfycbyu9YGIfEWP3BtmebcXRoj7JbWb6UAMgHJkincpdxOXsXis6JmsBi6MMD_gK39xt6rFQg/exec';
-    
+
     btn.innerText = "Uploading... Please wait";
     btn.disabled = true;
-    
+
     const file = document.getElementById('t-cv').files[0];
+
+    if (!file) {
+        alert("No CV file selected");
+        btn.innerText = "Send Application";
+        btn.disabled = false;
+        return;
+    }
+
     const reader = new FileReader();
-    reader.readAsDataURL(file);
+
+    reader.onerror = () => {
+        alert("Failed to read file");
+        btn.innerText = "Send Application";
+        btn.disabled = false;
+    };
+
     reader.onload = async () => {
-        const data = {
-            isTutor: true,
-            name: document.getElementById('t-name').value,
-            email: document.getElementById('t-email').value,
-            phone: document.getElementById('t-phone').value,
-            langs: document.getElementById('t-langs').value,
-            edu: document.getElementById('t-edu').value,
-            certs: document.getElementById('t-certs').value,
-            exp: document.getElementById('t-exp').value,
-            hours: document.getElementById('t-hours').value,
-            bio: document.getElementById('t-bio').value,
-            cvFile: reader.result.split(',')[1],
-            cvName: document.getElementById('t-name').value + "_CV.pdf"
-        };
-        
         try {
-const res = await fetch(TUTOR_URL, { 
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-});
+            const base64 = reader.result.split(',')[1];
 
-if (!res.ok) {
-    throw new Error("Server error while submitting tutor form");
-}
+            const data = {
+                isTutor: true,
+                name: document.getElementById('t-name').value,
+                email: document.getElementById('t-email').value,
+                phone: document.getElementById('t-phone').value,
+                langs: document.getElementById('t-langs').value,
+                edu: document.getElementById('t-edu').value,
+                certs: document.getElementById('t-certs').value,
+                exp: document.getElementById('t-exp').value,
+                hours: document.getElementById('t-hours').value,
+                bio: document.getElementById('t-bio').value,
+                cvFile: base64,
+                cvName: document.getElementById('t-name').value + "_CV.pdf"
+            };
 
-if (!res.ok) {
-    throw new Error("Server error while submitting student form");
-}
+            const res = await fetch(TUTOR_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            if (!res.ok) {
+                throw new Error("Server error while submitting form");
+            }
+
             document.getElementById('tutor-form-container').innerHTML = `
                 <div class="text-center py-20">
-                    <h2 class="text-2xl font-bold text-primary">Application is submitted!</h2>
-                    <p>We will review your application and will reach out to you soon.</p>
-                </div>`;
+                    <h2 class="text-2xl font-bold text-primary">Application submitted!</h2>
+                    <p>We will review your application and contact you soon.</p>
+                </div>
+            `;
+
         } catch (err) {
+            console.error(err);
             alert("Submission failed. Please try again.");
+
             btn.innerText = "Send Application";
             btn.disabled = false;
         }
     };
+
+    reader.readAsDataURL(file);
 }
 
 // 2. RENDER THE FORM
