@@ -292,7 +292,7 @@ async function handleTutorSubmit(e) {
     e.preventDefault();
 
     const btn = e.target.querySelector('button');
-    const TUTOR_URL = 'https://tutor-upload-proxy.yourname.workers.dev';
+    const TUTOR_URL = 'https://tutor-api.alextdakov.workers.dev/';
 
     btn.innerText = "Uploading... Please wait";
     btn.disabled = true;
