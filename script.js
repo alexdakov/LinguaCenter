@@ -170,15 +170,27 @@ async function sendEmailNow() {
     try {
         const response = await fetch('https://linguabridge-email-form-handler.alextdakov.workers.dev', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Add this line!
+            },
             body: JSON.stringify(formData)
         });
 
         if (response.ok) {
             alert("Success! We received your message.");
-            btn.innerText = "Send Message";
+            // Optional: Clear the form after success
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-subject').value = '';
+            document.getElementById('contact-message').value = '';
+        } else {
+            // This catches errors like "MailChannels Error"
+            const errorText = await response.text();
+            alert("Worker Error: " + errorText);
         }
     } catch (error) {
-        alert("Something went wrong. Please try again.");
+        alert("Network error: Could not connect to the server.");
+    } finally {
         btn.innerText = "Send Message";
     }
 }
