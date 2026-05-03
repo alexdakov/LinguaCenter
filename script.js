@@ -157,20 +157,14 @@ function scrollLanguages(distance) {
 
 // EMAIL CLIENT
 async function sendEmailNow() {
-    const btn = document.querySelector('button');
-    btn.innerText = "Sending...";
+    const btn = document.querySelector('button[onclick="sendEmailNow()"]');
+    if (btn) btn.innerText = "Sending...";
     
-    // Get values directly
-    const nameValue = document.getElementById('contact-name').value;
-    const emailValue = document.getElementById('contact-email').value;
-    const subjectValue = document.getElementById('contact-subject').value;
-    const messageValue = document.getElementById('contact-message').value;
-
     const formData = {
-        name: nameValue,
-        email: emailValue,
-        subject: subjectValue,
-        message: messageValue
+        name: document.getElementById('contact-name').value,
+        email: document.getElementById('contact-email').value,
+        subject: document.getElementById('contact-subject').value,
+        message: document.getElementById('contact-message').value
     };
 
     try {
@@ -184,11 +178,11 @@ async function sendEmailNow() {
             alert("Success! We received your message.");
         } else {
             const err = await response.text();
-            alert("Error from server: " + err);
+            alert("Worker Error: " + err);
         }
     } catch (error) {
-        alert("Network error. Check your internet or CORS settings.");
+        alert("Connection error. Please try again.");
     } finally {
-        btn.innerText = "Send Message";
+        if (btn) btn.innerText = "Send Message";
     }
 }
