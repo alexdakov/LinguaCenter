@@ -320,15 +320,18 @@ function updateSwitcherUI(lang) {
     });
 }
 
+// This listener runs every time a page loads
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. Check if the user has a saved language, otherwise default to 'en'
+    // 1. Get the language (saved from the switcher or default to 'en')
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     
-    // 2. Update the UI look (highlights the flag)
+    // 2. Highlight the correct flag in the nav bar
     updateSwitcherUI(savedLang);
     
-    // 3. If we are on the enrolment page, render the form in that language
-    if (document.getElementById('enrolment-form-container')) {
+    // 3. Check if we are on the enrolment page
+    const formContainer = document.getElementById('enrolment-form-container');
+    if (formContainer) {
+        console.log("Building form in:", savedLang); // Check your browser console for this!
         renderEnrolForm(savedLang);
     }
 });
