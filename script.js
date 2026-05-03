@@ -292,7 +292,7 @@ async function handleTutorSubmit(e) {
     e.preventDefault();
 
     const btn = e.target.querySelector('button');
-    const TUTOR_URL = 'https://script.google.com/macros/s/AKfycbyu9YGIfEWP3BtmebcXRoj7JbWb6UAMgHJkincpdxOXsXis6JmsBi6MMD_gK39xt6rFQg/exec';
+    const TUTOR_URL = 'https://tutor-upload-proxy.yourname.workers.dev';
 
     btn.innerText = "Uploading... Please wait";
     btn.disabled = true;
@@ -332,10 +332,11 @@ async function handleTutorSubmit(e) {
                 cvFile: base64,
                 cvName: document.getElementById('t-name').value + "_CV.pdf"
             };
-
             const res = await fetch(TUTOR_URL, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify(data)
             });
 
