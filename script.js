@@ -156,47 +156,38 @@ function scrollLanguages(distance) {
 }
 
 // EMAIL CLIENT
-// EMAIL CLIENT
 async function sendEmailNow() {
     const btn = document.querySelector('button');
     btn.innerText = "Sending...";
     
-    // Get form values
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const subject = document.getElementById('contact-subject').value;
-    const message = document.getElementById('contact-message').value;
+    // Get values directly
+    const nameValue = document.getElementById('contact-name').value;
+    const emailValue = document.getElementById('contact-email').value;
+    const subjectValue = document.getElementById('contact-subject').value;
+    const messageValue = document.getElementById('contact-message').value;
 
     const formData = {
-        name: name,
-        email: email,
-        subject: subject,
-        message: message
+        name: nameValue,
+        email: emailValue,
+        subject: subjectValue,
+        message: messageValue
     };
 
     try {
         const response = await fetch('https://linguabridge-email-form-handler.alextdakov.workers.dev', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         });
 
         if (response.ok) {
             alert("Success! We received your message.");
-            // Optional: clear form
-            document.getElementById('contact-name').value = '';
-            document.getElementById('contact-email').value = '';
-            document.getElementById('contact-subject').value = '';
-            document.getElementById('contact-message').value = '';
         } else {
-            const errorText = await response.text();
-            alert("Worker Error: " + errorText);
+            const err = await response.text();
+            alert("Error from server: " + err);
         }
     } catch (error) {
-        console.error("Submission error:", error);
-        alert("Something went wrong. Please try again.");
+        alert("Network error. Check your internet or CORS settings.");
     } finally {
         btn.innerText = "Send Message";
     }
